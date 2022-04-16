@@ -1,26 +1,19 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Login from './pages/Login/Login';
+import LoginPage from './pages/Login/LoginPage';
+import RegisterPage from './pages/Register/RegisterPage';
 import AniList from './pages/AniList/AniList';
-import Register from './pages/Register/Register';
+import HomePage from './pages/Home/HomePage';
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<LoginPage />} />
         <Route path='/ani-list' element={<AniList />} />
-        <Route path='/register' element={<Register />} />
+        <Route path='/register' element={<RegisterPage />} />
       </Routes>
-
-      {/* <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a> */}
     </div>
   );
 }

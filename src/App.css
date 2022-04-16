@@ -1,9 +1,9 @@
 .videoImg {
   position: absolute;
   width: 100%;
-  filter: brightness(0.7);
-  height: 99.6vh;
+  height: 100%;
   object-fit: cover;
+  filter: blur(3px);
 }
 
 .videoContainer {
@@ -13,33 +13,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg, #0E151F 0%, #000000 0.01%, rgba(8, 13, 19, 0.721049) 26.62%, rgba(11, 17, 25, 0.6) 37.61%, rgba(14, 21, 31, 0.54) 48.47%, rgba(12, 17, 26, 0.58) 60.4%, rgba(10, 15, 22, 0.671733) 69.14%, #000000 98.54%);
+  background:#000000bf;
 }
 
 .videoWrapper {
-  /* position: absolute;
-  top: 50%;
+  width: 300px;
+  position: absolute;
+  top: 55%;
   left: 50%;
-  transform: translate(-50%, -50%); */
+  transform: translate(-50%, -50%); 
 }
 
 .videoLogo {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: 700;
 
   font-family: 'RubikGlitch';
-  font-size: 50px;
+  font-size: 40px;
   line-height: 140%;
   text-align: center;
 
-  color: #ffffffab;
+  color: #ffffffbd;
 }
 
-.loginBtn {
+.btn {
   margin: auto;
   margin-bottom: 20px;
+  margin-top: 15px;
 
-  width: 200px;
+  width: 100%;
   height: 45px;
 
   display: flex;
@@ -49,29 +51,64 @@
   background: #a1004e;
   border-radius: 10px;
   box-shadow: 0 0px 15px 5px rgb(192 16 101 / 54%);
+  outline: none;
+  border: none;
 
-  transition: 0.5s ease 0s;
-  opacity: 0.7;
-}
-
-.loginBtn a {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 140%;
-}
-
-.loginBtn:hover {
-  cursor: pointer;
-  box-shadow: none;
+  color: #fff;
 
   transition: 0.5s ease 0s;
-  opacity: 1;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0px 15px 0 rgb(192 16 101 / 54%);
+
+  transition: 0.5s ease 0s;
+  opacity: 0.9;
+}
+
+.btn:disabled,
+.btn[disabled]{
+  opacity: 0.2;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input {
+  padding: 15px;
+
+  height: 45px;
+  background: #fff8f81a;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-family: 'Play';
+}
+
+.input::placeholder {
+  color: #fff;
+}
+
+.input-error {
+  background: #f129551a;
 }
 
 .linkRegister {
   text-align: center;
-  margin-bottom: 14px;
-  font-size: 26px;
+  margin: 14px 0;
+  font-size: 18px;
+  line-height: 140%;
   font-weight: 700;
   color: #ffffffc2;
 }
