@@ -1,0 +1,44 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0E151F;
+  color: #fff;
+  font-family: 'Play';
+  font-weight: normal;
+}
+
+a {
+  font-size: 22px;
+  line-height: 140%;
+  color: #d30066;
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+/*FONT-FAMILY*/
+
+@font-face {
+  font-family: 'Play';
+  font-weight: normal;
+  src: local('Play'), url("./fonts/Play-Regular.woff") format('woff');
+}
+
+@font-face {
+  font-family: 'Play';
+  font-weight: bold;
+  src: local('Play'), url("./fonts/Play-Bold.woff") format('woff');
+}
+
+@font-face {
+  font-family: 'RubikGlitch';
+  font-weight: bold;
+  src: local('RubikGlitch'), url("./fonts/RubikGlitch-Regular.woff") format('woff');
+}
+
+
+/*******/
