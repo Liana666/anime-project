@@ -1,33 +1,25 @@
-import { Link } from 'react-router-dom';
-import gif from '../../img/oni.gif';
-import Login from '../../components/auth/Login';
+import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
-const LoginPage = () => {
-   return (
-      <>
-         <img
-            className="videoImg"
-            src={gif}
-            alt=""
-         />
+import gif from "../../img/oni.gif";
+import { LoginAndRegister } from "../../hoc/LoginAndRegister";
 
-         <div className="videoContainer">
-            <div className="videoWrapper">
-               <div className="videoLogo">
-                  AniPlay
-               </div>
+export const LoginPage = () => {
+  return (
+    <>
+      <img className="videoImg" src={gif} alt="" />
 
-               <Login />
+      <div className="videoContainer">
+        <div className="videoWrapper">
+          <div className="videoLogo">AniPlay</div>
 
-               <p className="linkRegister">
-                  Or <Link to="/register">register</Link>
-               </p>
-            </div>
-         </div>
+          <LoginAndRegister firebaseFunction={signInWithEmailAndPassword} />
 
-      </>
-
-   )
-}
-
-export default LoginPage;
+          <p className="linkRegister">
+            Or <Link to="/register">register</Link>
+          </p>
+        </div>
+      </div>
+    </>
+  );
+};

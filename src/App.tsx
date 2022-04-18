@@ -1,21 +1,28 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import LoginPage from './pages/Login/LoginPage';
-import RegisterPage from './pages/Register/RegisterPage';
-import AniList from './pages/AniList/AniList';
-import HomePage from './pages/Home/HomePage';
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+import { LoginPage } from "./pages/Login/LoginPage";
+import { RegisterPage } from "./pages/Register/RegisterPage";
+import { MainPage } from "./pages/MainPage/MainPage";
+import { ProtectedRoute } from "./hoc/ProtectedRoute";
+
+import "./App.css";
+
+export function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/ani-list' element={<AniList />} />
-        <Route path='/register' element={<RegisterPage />} />
+        <Route
+          index
+          element={
+            <ProtectedRoute>
+              <MainPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/login" element={<LoginPage />} />
+
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </div>
   );
 }
-
-export default App;
