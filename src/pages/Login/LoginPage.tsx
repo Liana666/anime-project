@@ -11,8 +11,6 @@ export const LoginPage = () => {
 
       <div className="videoContainer">
         <div className="videoWrapper">
-          <div className="videoLogo">AniPlay</div>
-
           <LoginAndRegister firebaseFunction={signInWithEmailAndPassword} />
 
           <p className="linkRegister">

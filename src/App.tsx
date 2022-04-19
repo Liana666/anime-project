@@ -4,23 +4,26 @@ import { LoginPage } from "./pages/Login/LoginPage";
 import { RegisterPage } from "./pages/Register/RegisterPage";
 import { MainPage } from "./pages/MainPage/MainPage";
 import { ProtectedRoute } from "./hoc/ProtectedRoute";
+import { Header } from "./components/Header/Header";
 
 import "./App.css";
+import { FavoritesPage } from "./pages/FavoritesPage/FavoritesPage";
 
 export function App() {
   return (
     <div className="App">
+      <Header />
       <Routes>
+        <Route index element={<MainPage />} />
         <Route
-          index
+          path="/favorites"
           element={
             <ProtectedRoute>
-              <MainPage />
+              <FavoritesPage />
             </ProtectedRoute>
           }
         />
         <Route path="/login" element={<LoginPage />} />
-
         <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </div>

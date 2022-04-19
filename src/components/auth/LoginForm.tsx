@@ -1,18 +1,19 @@
 import { useDispatch } from "react-redux";
-import { getAuth } from "firebase/auth";
-import { FormContainer } from "../components/auth/Form/FormContainer";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { FormContainer } from "./Form/FormContainer";
 import { useNavigate } from "react-router-dom";
-import { login } from "../store/slices/userSlice";
+import { login } from "../../store/slices/userSlice";
 
-export const LoginAndRegister = ({ firebaseFunction }: any) => {
+export const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin = (email: string, password: string) => {
     const auth = getAuth();
+    console.log(auth);
 
-    firebaseFunction(auth, email, password)
-      .then(({ user }: any) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
         dispatch(
           login({
             email: user.email,
@@ -20,7 +21,7 @@ export const LoginAndRegister = ({ firebaseFunction }: any) => {
         );
         navigate("/");
       })
-      .catch((error: any) => {
+      .catch((error) => {
         alert("Error: " + error.message);
       });
   };

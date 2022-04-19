@@ -17,7 +17,7 @@ export const Preloader = () => {
           r="0"
           fill="none"
           stroke="#f62f7c"
-          stroke-width="5"
+          strokeWidth="5"
         >
           <animate
             attributeName="r"
@@ -46,7 +46,7 @@ export const Preloader = () => {
           r="0"
           fill="none"
           stroke="#ce0e59"
-          stroke-width="5"
+          strokeWidth="5"
         >
           <animate
             attributeName="r"

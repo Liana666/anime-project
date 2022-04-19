@@ -1,17 +1,17 @@
-import { Navigate } from "react-router-dom";
-import { useEffect } from "react";
-import { getAuth } from "firebase/auth";
-import { auth } from "../../firebase";
+import { AniList } from "../../components/AniApi/AniList";
+import img from "../../img/img4.jpg";
+
+import "./MainPage.css";
 
 export const MainPage = () => {
-  const signOut = () => {
-    auth.signOut();
-  };
-
   return (
     <>
-      <h1>AniList</h1>
-      <button onClick={signOut}>Sign out</button>
+      <main className="main">
+        <img className="back" src={img} alt="" />
+        <div className="main__container">
+          <AniList />
+        </div>
+      </main>
     </>
   );
 };
