@@ -1,21 +1,21 @@
 import { FC } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { animeApi } from "../../../store/animeApi";
+import { useDispatch } from "react-redux";
 import "./AnimeFilter.css";
+import { addNewAnime } from "../../../store/slices/animeSlice";
 
-type Props = {
-  animeFilter: any;
-};
-
-export const AnimeFilter: FC<Props> = ({ animeFilter }) => {
+export const AnimeFilter = () => {
   const { data } = animeApi.useGetGenresQuery(0);
   const [genres, setGenre] = useState("All genres");
-  const [year, setYear] = useState(1998);
-  const [title, setTitle] = useState("");
-  const newAnime = animeApi.useGetFilterQuery({ title, year, genres });
+  const [year, setYear] = useState("");
+  const newAnime = animeApi.useGetFilterQuery({ year, genres });
+  const dispatch = useDispatch();
 
-  function filterAnime() {
-    animeFilter(newAnime.data);
+  async function filterAnime() {
+    let response = await newAnime;
+    console.log(response);
+    dispatch(addNewAnime(response.data.data.documents));
   }
 
   return (
@@ -38,19 +38,11 @@ export const AnimeFilter: FC<Props> = ({ animeFilter }) => {
       </select>
       <input
         className="filter-input"
-        type="number"
+        type="text"
         name="year"
         onChange={(e: any) => setYear(e.target.value)}
         value={year}
         placeholder="Year"
-      />
-      <input
-        className="filter-input"
-        type="text"
-        name="anime"
-        placeholder="Anime name"
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
       />
       <button onClick={filterAnime} className="filter-btn">
         Apply

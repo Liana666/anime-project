@@ -1,3 +1,4 @@
+import { addNewAnime, animeSlice } from './slices/animeSlice';
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 // import UserReducer from "./slices/userSlice";
@@ -6,6 +7,7 @@ import { animeApi } from './animeApi';
 
 const rootReducer = combineReducers({
     user: userSlice.reducer,
+    anime: animeSlice.reducer,
     [animeApi.reducerPath]: animeApi.reducer
 })
 

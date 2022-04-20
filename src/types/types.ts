@@ -74,8 +74,7 @@ type SagasType = {
 }
 
 export interface AnimeResponse {
-    title: string
-    year: number
+    year: string
     genres: string
 }
 

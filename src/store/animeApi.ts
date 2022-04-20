@@ -12,8 +12,11 @@ export const animeApi = createApi({
         getGenres: build.query({
             query: (type: number) => `resources/1.0/${type}`
         }),
-        getFilter: build.query<ItemAnimeType[], AnimeResponse>({
-            query: ({title, year, genres}) => `anime?${title}&${year}&${genres}`
+        getFilter: build.query<any, AnimeResponse>({
+            query: ({year, genres}) => `anime?&year=${year}&genres=${genres}`
+        }),
+        searchAnime: build.query<any, string>({
+            query: (title) => `anime?title=${title}`
         })
     })  
 })
