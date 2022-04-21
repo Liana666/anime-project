@@ -29,7 +29,7 @@ export const ItemAni: FC<ItemAnimeType> = ({
           {genres.length > 0 && <p className="card__genres-title">Genres: </p>}
           <ul
             className={
-              genres.length > 10 ? "card__genres--show" : "card__genres"
+              genres.length > 15 ? "card__genres--show" : "card__genres"
             }
           >
             {genres.map((genre) => (

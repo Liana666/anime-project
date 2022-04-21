@@ -11,13 +11,13 @@ export const animeSlice = createSlice({
     initialState,
     reducers: {
         addNewAnime(state, action) {
-            state.anime = [...action.payload];
+            state.anime = !action.payload ? 0 : [...action.payload];
         },
         addPageCount(state, action) {
             state.count = action.payload;
         }
-        
+
     },
 })
 
- export const { addNewAnime} = animeSlice.actions;
+export const { addNewAnime } = animeSlice.actions;

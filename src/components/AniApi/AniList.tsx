@@ -16,11 +16,8 @@ export const AniList = () => {
   const anime = useSelector((state: RootState) => state.anime.anime);
 
   useEffect(() => {
-    async function fetchMyAPI() {
-      let response = await animeApiResponse;
-      dispatch(addNewAnime(response.data.data));
-    }
-    fetchMyAPI();
+    let response = animeApiResponse;
+    response.fulfilledTimeStamp ? dispatch(addNewAnime(response.data.data)) : <Preloader />;
   }, [animeApiResponse, dispatch]);
 
   const updateRandomAnime = () => {

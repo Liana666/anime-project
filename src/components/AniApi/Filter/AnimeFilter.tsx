@@ -4,6 +4,7 @@ import { animeApi } from "../../../store/animeApi";
 import { useDispatch } from "react-redux";
 import "./AnimeFilter.css";
 import { addNewAnime } from "../../../store/slices/animeSlice";
+import { Preloader } from "../../Preloader/Preloader";
 
 export const AnimeFilter = () => {
   const { data } = animeApi.useGetGenresQuery(0);
@@ -12,10 +13,9 @@ export const AnimeFilter = () => {
   const newAnime = animeApi.useGetFilterQuery({ year, genres });
   const dispatch = useDispatch();
 
-  async function filterAnime() {
-    let response = await newAnime;
-    console.log(response);
-    dispatch(addNewAnime(response.data.data.documents));
+  function filterAnime() {
+    let response = newAnime;
+    response.fulfilledTimeStamp ? dispatch(addNewAnime(response.data.data.documents)) : <Preloader />;
   }
 
   return (

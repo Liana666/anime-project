@@ -1,23 +1,32 @@
+import { getAuth } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { auth } from "../../firebase";
 import { LogoutIcon } from "../svg/LogoutIcon";
 import "./Header.css";
 
 export const Header = () => {
   const [userEmail, setUseEmail] = useState<any>(null);
-  const email = auth.currentUser?.email;
+  const [authLocal, setAuthLocal] = useState();
+  const auth = getAuth();
 
-  useEffect(() => {
-    setUseEmail(email);
-  }, [email]);
+  // useEffect(() => {
+  //   setAuthLocal()
+  // })
+  // useEffect(() => {
+  //   console.log(auth.currentUser);
+  //   setUseEmail(auth.currentUser ? auth.currentUser.email : null);
+  // }, [auth.currentUser])
+
+
+
+
+  // console.log(auth)
 
   const signOut = () => {
     auth.signOut();
     setUseEmail(null);
+    localStorage.removeItem('auth');
   };
-
-  console.log(email);
 
   return (
     <header>
@@ -33,7 +42,7 @@ export const Header = () => {
         <div className="header__links">
           {userEmail && (
             <span style={{ fontSize: 15 }} className="header__email">
-              Hi, {email}
+              Hi
             </span>
           )}
           {userEmail ? (

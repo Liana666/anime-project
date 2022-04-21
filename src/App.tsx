@@ -10,6 +10,7 @@ import "./App.css";
 import { FavoritesPage } from "./pages/FavoritesPage/FavoritesPage";
 
 export function App() {
+
   return (
     <div className="App">
       <Header />

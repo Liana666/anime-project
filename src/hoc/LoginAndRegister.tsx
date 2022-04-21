@@ -19,6 +19,7 @@ export const LoginAndRegister = ({ firebaseFunction }: any) => {
           })
         );
         navigate("/");
+        localStorage.setItem('auth', 'true');
       })
       .catch((error: any) => {
         alert("Error: " + error.message);
