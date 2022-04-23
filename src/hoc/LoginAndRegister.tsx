@@ -26,11 +26,7 @@ export const LoginAndRegister: React.FC<Props> = ({
   const handleLogin = (email: string, password: string) => {
     firebaseFunction(auth, email, password)
       .then(({ user }) => {
-        dispatch(
-          login({
-            email: user.email,
-          })
-        );
+        dispatch(login(user.email));
         navigate("/");
       })
       .catch((error) => {

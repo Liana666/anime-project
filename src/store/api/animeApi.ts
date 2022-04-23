@@ -3,6 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { ItemAnime } from '../../types/types';
 import { AnimeResponse } from '../../types/types';
 import { SearchAndFilterData } from '../../types/types';
+import { Genres } from '../../types/types';
 
 export const animeApi = createApi({
     reducerPath: "animeApi",
@@ -15,7 +16,10 @@ export const animeApi = createApi({
               },
         }),
         getGenres: build.query({
-            query: (type: number) => `resources/1.0/${type}`
+            query: (type: number) => `resources/1.0/${type}`,
+            transformResponse: (response: { data: Genres }) => {
+                return response.data.genres;
+              },
         }),
         getFilter: build.query<ItemAnime[], AnimeResponse>({
             query: ({year, genres}) => `anime?&year=${year}&genres=${genres}`,

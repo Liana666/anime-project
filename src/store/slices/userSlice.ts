@@ -9,11 +9,13 @@ const initialState: InitialState = {
 };
 
 export const userSlice = createSlice({
+    
     name: 'user',
     initialState,
     reducers: {
         login(state, action) {
-            state.email = action.payload.email
+            console.log(action.payload)
+            state.email = action.payload
         },
         logout(state) {
             state.email = null

@@ -13,13 +13,16 @@ export type AuthForm = {
     handlePassword: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
+export type Genres ={
+    genres: string[]
+}
+
 export type SearchAndFilterData ={
     count: number
     current_page: number
     documents: ItemAnime[]
     last_page: number
 }
-
 
 export type ItemAnime = {
     anilist_id: number

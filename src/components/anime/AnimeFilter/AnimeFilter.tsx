@@ -19,7 +19,6 @@ export const AnimeFilter: React.FC<Props> = ({
   filterAnime,
   clearFilter,
 }) => {
-  console.log(data);
   return (
     <div className="filter">
       <select
@@ -32,7 +31,7 @@ export const AnimeFilter: React.FC<Props> = ({
       >
         <option>All genres</option>
         {data &&
-          data.data.genres.map((genre: string) => (
+          data.map((genre: string) => (
             <option key={genre} value={genre}>
               {genre}
             </option>

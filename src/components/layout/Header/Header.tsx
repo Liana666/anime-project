@@ -2,22 +2,30 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import { auth } from "../../firebase/firebase";
+import { useAppDispatch } from "../../../hooks/useReduxTypes";
+import { login } from "../../../store/slices/userSlice";
 
 import "./Header.css";
 
 import { LogoutIcon } from "../../svg/LogoutIcon";
 
 export const Header = () => {
+  const dispatch = useAppDispatch();
   const [emailUser, setEmailUser] = useState<string | null>(null);
 
   useEffect(() => {
     auth.onAuthStateChanged((userAuth) => {
-      userAuth ? setEmailUser(userAuth.email) : setEmailUser(null);
+      if (userAuth) {
+        setEmailUser(userAuth.email);
+        dispatch(login(userAuth.email));
+      }
     });
-  }, [auth]);
+  }, [auth, dispatch]);
 
   const signOut = () => {
     auth.signOut();
+    dispatch(login(null));
+    setEmailUser(null);
   };
 
   return (
