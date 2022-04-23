@@ -20,6 +20,10 @@ a {
   text-decoration: none;
 }
 
+input {
+  color: #fff !important;
+}
+
 /*FONT-FAMILY*/
 
 @font-face {
@@ -39,6 +43,5 @@ a {
   font-weight: bold;
   src: local('RubikGlitch'), url("./fonts/RubikGlitch-Regular.woff") format('woff');
 }
-
 
 /*******/

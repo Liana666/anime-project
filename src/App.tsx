@@ -1,28 +1,28 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import Login from './pages/Login/Login';
-import AniList from './pages/AniList/AniList';
-import Register from './pages/Register/Register';
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+import { LoginPage } from "./pages/Login/LoginPage";
+import { RegisterPage } from "./pages/Register/RegisterPage";
+import { MainPage } from "./pages/MainPage/MainPage";
+import { ProtectedRoute } from "./hoc/ProtectedRoute";
+
+import "./App.css";
+
+export function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/ani-list' element={<AniList />} />
-        <Route path='/register' element={<Register />} />
-      </Routes>
+        <Route
+          index
+          element={
+            <ProtectedRoute>
+              <MainPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/login" element={<LoginPage />} />
 
-      {/* <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a> */}
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
     </div>
   );
 }
-
-export default App;
