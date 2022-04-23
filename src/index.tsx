@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import { App } from "./App";
 import { setUpStore } from "./store/store";
-import "./firebase";
+import "./components/firebase/firebase";
 
 import "./index.css";
 

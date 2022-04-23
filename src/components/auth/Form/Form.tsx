@@ -1,9 +1,8 @@
-import { FC } from "react";
+import { AuthForm } from "../../../types/types";
 
 import "./Form.css";
-import { FormType } from "../../../types/types";
 
-export const Form: FC<FormType> = ({
+export const Form: React.FC<AuthForm> = ({
   email,
   handleEmail,
   handleBlur,

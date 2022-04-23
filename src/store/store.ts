@@ -1,9 +1,8 @@
-import { addNewAnime, animeSlice } from './slices/animeSlice';
+import { customMiddleWare } from './middleware/customMiddleWare';
+import { animeSlice } from './slices/animeSlice';
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-
-// import UserReducer from "./slices/userSlice";
 import { userSlice } from "./slices/userSlice";
-import { animeApi } from './animeApi';
+import { animeApi } from './api/animeApi';
 
 const rootReducer = combineReducers({
     user: userSlice.reducer,
@@ -14,7 +13,8 @@ const rootReducer = combineReducers({
 export const setUpStore = () => {
     return configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(animeApi.middleware)
+    middleware: (getDefaultMiddleware) => 
+    getDefaultMiddleware().concat(animeApi.middleware, customMiddleWare)
 })
 }
  

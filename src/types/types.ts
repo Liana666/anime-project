@@ -1,13 +1,4 @@
-export type InitialStateUsersType = {
-    email: string | null
-}
-
-export type FormContainerType = {
-    btnValue: string
-    handleSubmit: (email: string, password: string) => void 
-}
-
-export type FormType = {
+export type AuthForm = {
     btnValue: string
     email: string
     emailError: string
@@ -22,14 +13,21 @@ export type FormType = {
     handlePassword: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
+export type SearchAndFilterData ={
+    count: number
+    current_page: number
+    documents: ItemAnime[]
+    last_page: number
+}
 
-export type ItemAnimeType = {
+
+export type ItemAnime = {
     anilist_id: number
     mal_id: number
     format: number
     status: number
-    titles: TitlesType
-    descriptions: DescriptionsType
+    titles: Titles
+    descriptions: Descriptions
     start_date: string
     end_date: string
     weekly_airing_day: number
@@ -41,7 +39,7 @@ export type ItemAnimeType = {
     cover_color: string
     banner_image: string
     genres: string[]
-    sagas: SagasType
+    sagas: Sagas
     score: number
     recommendations: number[]
     nsfw: boolean
@@ -50,7 +48,7 @@ export type ItemAnimeType = {
 }
 
 
-type TitlesType = {
+type Titles = {
     rj?: string,
     en: string
     jp: string
@@ -58,22 +56,22 @@ type TitlesType = {
     it: string
 }
 
-type DescriptionsType = {
+type Descriptions = {
     en: string
     jp: string
     fr: string
     it: string
 }
 
-type SagasType = {
-    titles: TitlesType
-    descriptions: DescriptionsType
+type Sagas = {
+    titles: Titles
+    descriptions: Descriptions
     episode_from: number
     episode_to: number
     episodes_count: number
 }
 
-export interface AnimeResponse {
+export type AnimeResponse = {
     year: string
     genres: string
 }
