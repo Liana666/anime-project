@@ -5,7 +5,7 @@ import { RegisterPage } from "./pages/registerPage/RegisterPage";
 import { MainPage } from "./pages/mainPage/MainPage";
 import { PrivateRoute } from "./hoc/PrivateRoute";
 import { Header } from "./components/layout/Header";
-import { FavoritesPage } from "./pages/favoritesPage/FavoritesPage";
+import { FavoritesPage } from "./pages/FavoritesPage/FavoritesPage";
 import { ErrorPage } from "./pages/errorPage/errorPage";
 
 import "./App.css";
