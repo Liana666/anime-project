@@ -1,4 +1,4 @@
-import { mailformat } from '../constants/mailformat';
+import { mailformat } from '../constants/mailformat.constants';
 
 export function isValidEmail(targetValue: string) {
   const isValidEmail = mailformat.test(String(targetValue).toLowerCase());

@@ -33,11 +33,14 @@ export const animeApi = createApi({
                 return response.data.documents;
               },
         }),
-        getItemAnime: build.query<ItemAnime, number>({
+        getItemAnime: build.query<any, number>({
             query: (id) => `anime/${id}`,
             transformResponse: (response: { data: any }) => {
-                console.log(response)
-                return response.data;
+                console.log(response.data)
+                if(response.data) {
+                    return response.data
+                }
+                
               },
         })
     })  

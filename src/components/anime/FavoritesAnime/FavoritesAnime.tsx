@@ -1,16 +1,18 @@
-import { AnimeCart } from "../AnimeCart/AnimeCart";
-import { UserFavoriteAnime } from "../../../store/selectors/selectors";
+import { animeApi } from "../../../store/api/animeApi";
 
-export const FavoritesAnime = () => {
-  const favoritesAnime = UserFavoriteAnime();
-  console.log(favoritesAnime);
-  return (
-    <div className="anime-list">
-      {favoritesAnime ? (
-        favoritesAnime.map((anime) => <AnimeCart key={anime.id} {...anime} />)
-      ) : (
-        <h2>As long as there is no favorite</h2>
-      )}
-    </div>
-  );
+import { Preloader } from "../../preloader/Preloader";
+import { AnimeCart } from "../AnimeCart/AnimeCart";
+
+type Props = {
+  id: number;
+};
+
+export const FavoritesAnime: React.FC<Props> = ({ id }) => {
+  const { data, isLoading, isSuccess } = animeApi.useGetItemAnimeQuery(id);
+
+  if (isLoading) {
+    return <Preloader />;
+  }
+
+  return <>{isSuccess && <AnimeCart key={data.id} {...data} />}</>;
 };

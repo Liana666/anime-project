@@ -4,7 +4,7 @@ import { Anime } from './../../types/types';
  
 type Item = {
     email: string 
-    anime: Anime[]
+    ids: number[]
 }
     
 type InitialState = {
@@ -14,7 +14,7 @@ type InitialState = {
      
 const initialState: InitialState = {
     email: '',
-    items: []
+    items:[]
 };
 
 export const userSlice = createSlice({
@@ -22,20 +22,20 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         addFavoriteAnime(state, action) {
-            console.log(action.payload)
+  
             if(state.items.length === 0) {
                 state.items.push({
                     email: state.email,
-                    anime: [action.payload]
+                    ids: [action.payload.id]
                 })
             } else {
                 state.items.forEach((element, index) => {
                     if (element.email === state.email) {
-                        state.items[index].anime.push(action.payload)
+                        state.items[index].ids.push(action.payload.id)
                     } else if (!state.items.some(item => item.email === state.email)){
                         state.items.push({
                             email: state.email,
-                            anime: [action.payload]
+                            ids: [action.payload.id]
                         })
                     }
                 });
@@ -45,7 +45,9 @@ export const userSlice = createSlice({
         removeFavoriteAnime(state, action) {
            state.items.forEach(item => {
                 if(item.email === state.email)  {
-                item.anime = item.anime.filter(anime => anime.id !== action.payload)
+                let myIndex = item.ids.indexOf(action.payload.id);
+                item.ids.splice(myIndex, 1);
+                console.log(item.ids);
                 }    
             })
         },

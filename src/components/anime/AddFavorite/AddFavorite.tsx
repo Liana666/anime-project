@@ -7,44 +7,27 @@ import { removeFavoriteAnime } from "../../../store/slices/userSlice";
 import "./AddFavorite.css";
 import { UserFavoriteAnime } from "../../../store/selectors/selectors";
 
-import { Anime } from "../../../types/types";
+type Props = {
+  id: number;
+};
 
-export const AddFavorite: React.FC<Anime> = ({
-  id,
-  titles,
-  cover_image,
-  description,
-  genres,
-  start_date,
-  cover_color,
-}) => {
+export const AddFavorite: React.FC<Props> = ({ id }) => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   const email = useAppSelector((state) => state.user.email);
-
+  const navigate = useNavigate();
   const favorites = UserFavoriteAnime();
 
   const addFavorites = () => {
     !email && navigate("/login");
-    dispatch(
-      addFavoriteAnime({
-        id,
-        titles,
-        cover_image,
-        description,
-        genres,
-        start_date,
-        cover_color,
-      })
-    );
+    dispatch(addFavoriteAnime({ id }));
   };
 
   return (
     <>
-      {favorites && favorites.find((item) => item.id === id) ? (
+      {favorites && favorites.find((idUser) => idUser === id) ? (
         <button
           className="cart__add-favorites"
-          onClick={() => dispatch(removeFavoriteAnime(id))}
+          onClick={() => dispatch(removeFavoriteAnime({ id }))}
         >
           - Delete from favorites
         </button>

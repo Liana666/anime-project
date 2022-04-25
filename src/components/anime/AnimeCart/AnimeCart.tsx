@@ -17,23 +17,11 @@ export const AnimeCart: React.FC<Anime> = ({
 }) => {
   const title_start = titles?.en.split(" ").slice(0, -1).join(" ");
   const title_end = titles.en.split(" ").pop();
-  const titleJp = titles.jp?.slice(0, 7);
 
   return (
     <div className="cart">
       <div className="cart__info">
-        <AddFavorite
-          titles={titles}
-          description={description}
-          start_date={start_date}
-          cover_image={cover_image}
-          genres={genres}
-          id={id}
-          episode_duration={episode_duration}
-          season_period={season_period}
-          cover_color={cover_color}
-          end_date={end_date}
-        />
+        <AddFavorite id={id} />
         <div className="cart__title-wrapper">
           <div className="cart__title">
             <span>{title_start}</span>{" "}
@@ -78,7 +66,7 @@ export const AnimeCart: React.FC<Anime> = ({
       </div>
       <div className="cart__cover">
         <div style={{ color: cover_color }} className="cart__title--jp">
-          {titleJp}
+          {titles.jp?.slice(0, 7)}
         </div>
         <img src={cover_image} alt="" />
       </div>
