@@ -10,9 +10,15 @@ import { AnimeList } from "./AnimeList";
 
 export const AnimeListContainer = () => {
   const { data, isLoading, fulfilledTimeStamp } =
-    animeApi.useGetRandomAnimeQuery(10);
+    animeApi.useGetRandomAnimeQuery(40);
   const dispatch = useDispatch();
-  const anime = useSelector((state: RootState) => state.anime.anime);
+  const anime = useSelector((state: RootState) =>
+    state.anime.anime.filter(
+      (item) =>
+        item.titles.en?.split(" ").length > 2 &&
+        item.titles.en?.split(" ").length < 8
+    )
+  );
 
   useEffect(() => {
     fulfilledTimeStamp && dispatch(addNewAnime(data));

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { ItemAnime } from './../../types/types';
 
 type States = {
-    anime: [] | ItemAnime[]
+    anime: ItemAnime[]
     count: number
 };
 

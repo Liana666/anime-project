@@ -20,7 +20,7 @@ export const AnimeFilter: React.FC<Props> = ({
   clearFilter,
 }) => {
   return (
-    <div className="filter">
+    <>
       <select
         className="filter-select"
         placeholder="Genres"
@@ -58,6 +58,6 @@ export const AnimeFilter: React.FC<Props> = ({
       <button onClick={clearFilter} className="filter-btn">
         Clear
       </button>
-    </div>
+    </>
   );
 };

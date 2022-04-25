@@ -52,11 +52,8 @@ export type ItemAnime = {
 
 
 type Titles = {
-    rj?: string,
     en: string
     jp: string
-    fr: string
-    it: string
 }
 
 type Descriptions = {
@@ -79,5 +76,16 @@ export type AnimeResponse = {
     genres: string
 }
 
-
+export type Anime = {
+    id: number 
+    titles: Titles
+    cover_image: string
+    description: string
+    genres: string[]
+    start_date: string
+    end_date: string
+    season_period: number
+    episode_duration: number
+    cover_color: string
+}
 

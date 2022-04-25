@@ -32,6 +32,13 @@ export const animeApi = createApi({
             transformResponse: (response: { data: SearchAndFilterData }) => {
                 return response.data.documents;
               },
+        }),
+        getItemAnime: build.query<ItemAnime, number>({
+            query: (id) => `anime/${id}`,
+            transformResponse: (response: { data: any }) => {
+                console.log(response)
+                return response.data;
+              },
         })
     })  
 })

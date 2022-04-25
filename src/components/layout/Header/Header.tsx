@@ -32,11 +32,11 @@ export const Header = () => {
     <header>
       <div className="header">
         <NavLink to="/">
-          <div className="header__logo">AniPlay</div>
+          <div className="header__logo">アニ/Ani</div>
         </NavLink>
         <div className="header__links">
-          <NavLink to="/favorites">Favorites</NavLink>
-          <NavLink to="/history">History</NavLink>
+          <NavLink to="/favorites">お気に入り/Favorites</NavLink>
+          <NavLink to="/history">物語/History</NavLink>
         </div>
 
         <div className="header__links">

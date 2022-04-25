@@ -1,4 +1,4 @@
-import { AnimeCart } from "./AnimeCart/AnimeCart";
+import { AnimeCart } from "../AnimeCart/AnimeCart";
 
 import { ItemAnime } from "../../../types/types";
 
@@ -13,9 +13,21 @@ export const AnimeList: React.FC<Props> = ({ anime }) => {
     <>
       <div className="anime-list">
         {anime.length > 0 ? (
-          anime
-            .slice(0, 10)
-            .map((ani: ItemAnime) => <AnimeCart key={ani.id} {...ani} />)
+          anime.map((ani: ItemAnime) => (
+            <AnimeCart
+              key={ani.id}
+              titles={ani.titles}
+              description={ani.descriptions.en}
+              start_date={ani.start_date}
+              cover_image={ani.cover_image}
+              genres={ani.genres}
+              id={ani.id}
+              episode_duration={ani.episode_duration}
+              season_period={ani.season_period}
+              cover_color={ani.cover_color}
+              end_date={ani.end_date}
+            />
+          ))
         ) : (
           <h2>Not Found</h2>
         )}

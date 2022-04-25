@@ -1,3 +1,9 @@
+import { FavoritesAnime } from "../../components/anime";
+
 export const FavoritesPage = () => {
-  return <></>;
+  return (
+    <div className="container">
+      <FavoritesAnime />
+    </div>
+  );
 };
