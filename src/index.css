@@ -5,7 +5,16 @@
 }
 
 body {
-  background: #0E151F;
+  min-height: 100vh;
+  
+  overflow-x: hidden;
+  background: #0f0f0f;
+  /* background-image: url(./img//img4.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;  
+  backdrop-filter: brightness(0.6); */
+
   color: #fff;
   font-family: 'Play';
   font-weight: normal;
@@ -45,3 +54,20 @@ input {
 }
 
 /*******/
+
+::-webkit-scrollbar {
+  width: 6px; /* ширина для вертикального скролла */
+  height: 4px; /* высота для горизонтального скролла */
+  background-color: #0c0c0c10;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background: #a1004e;
+  border-radius: 10px;
+  transition: 0.5s ease 0s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    opacity: 0.9;
+}

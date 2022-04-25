@@ -1,17 +1,35 @@
-import { Navigate } from "react-router-dom";
-import { useEffect } from "react";
-import { getAuth } from "firebase/auth";
-import { auth } from "../../firebase";
+import { ErrorBoundary } from "react-error-boundary";
+
+import { ErrorFallback } from "../../components/error";
+import {
+  AnimeListContainer,
+  UpdateAnimeContainer,
+  AnimeFilterContainer,
+  SearchAnimeContainer,
+} from "../../components/anime";
+
+import "./MainPage.css";
+
+import img from "../../img/img4.jpg";
 
 export const MainPage = () => {
-  const signOut = () => {
-    auth.signOut();
-  };
-
   return (
     <>
-      <h1>AniList</h1>
-      <button onClick={signOut}>Sign out</button>
+      <main className="main">
+        <img className="back" src={img} alt="" />
+        <div className="main__container">
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <div className="anime-filter">
+              <AnimeFilterContainer />
+              <div className="search">
+                <SearchAnimeContainer />
+                <UpdateAnimeContainer />
+              </div>
+            </div>
+            <AnimeListContainer />
+          </ErrorBoundary>
+        </div>
+      </main>
     </>
   );
 };

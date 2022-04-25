@@ -1,11 +1,24 @@
-import { configureStore } from "@reduxjs/toolkit";
-import {userSlice} from "./slices/userSlice";
+import { customMiddleWare } from './middleware/customMiddleWare';
+import { animeSlice } from './slices/animeSlice';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { userSlice } from "./slices/userSlice";
+import { animeApi } from './api/animeApi';
 
-export const store = configureStore({
-    reducer: {
-        user: userSlice.reducer
-    }
+const rootReducer = combineReducers({
+    user: userSlice.reducer,
+    anime: animeSlice.reducer,
+    [animeApi.reducerPath]: animeApi.reducer
 })
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch
+export const setUpStore = () => {
+    return configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) => 
+    getDefaultMiddleware().concat(animeApi.middleware, customMiddleWare)
+})
+}
+ 
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setUpStore>;
+export type AppDispatch = AppStore['dispatch']; 

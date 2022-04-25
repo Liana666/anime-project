@@ -1,30 +1,38 @@
 import { useDispatch } from "react-redux";
-import { getAuth } from "firebase/auth";
-import { FormContainer } from "../components/auth/Form/FormContainer";
 import { useNavigate } from "react-router-dom";
+
 import { login } from "../store/slices/userSlice";
 
-export const LoginAndRegister = ({ firebaseFunction }: any) => {
+import { auth } from "../components/firebase/firebase";
+import { FormContainer } from "../components/auth";
+
+type Auth = typeof auth;
+type Props = {
+  firebaseFunction: (
+    auth: Auth,
+    email: string,
+    password: string
+  ) => Promise<any>;
+  btnValue: string;
+};
+
+export const LoginAndRegister: React.FC<Props> = ({
+  firebaseFunction,
+  btnValue,
+}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin = (email: string, password: string) => {
-    const auth = getAuth();
-    console.log(auth);
-
     firebaseFunction(auth, email, password)
-      .then(({ user }: any) => {
-        dispatch(
-          login({
-            email: user.email,
-          })
-        );
+      .then(({ user }) => {
+        dispatch(login(user.email));
         navigate("/");
       })
-      .catch((error: any) => {
+      .catch((error) => {
         alert("Error: " + error.message);
       });
   };
 
-  return <FormContainer btnValue="Login" handleSubmit={handleLogin} />;
+  return <FormContainer btnValue={btnValue} handleSubmit={handleLogin} />;
 };

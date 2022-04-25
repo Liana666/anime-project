@@ -1,27 +1,32 @@
 import { Routes, Route } from "react-router-dom";
 
-import { LoginPage } from "./pages/Login/LoginPage";
-import { RegisterPage } from "./pages/Register/RegisterPage";
-import { MainPage } from "./pages/MainPage/MainPage";
-import { ProtectedRoute } from "./hoc/ProtectedRoute";
+import { LoginPage } from "./pages/loginPage/LoginPage";
+import { RegisterPage } from "./pages/registerPage/RegisterPage";
+import { MainPage } from "./pages/mainPage/MainPage";
+import { PrivateRoute } from "./hoc/PrivateRoute";
+import { Header } from "./components/layout/Header";
+import { FavoritesPage } from "./pages/FavoritesPage/FavoritesPage";
+import { ErrorPage } from "./pages/errorPage/errorPage";
 
 import "./App.css";
 
 export function App() {
   return (
     <div className="App">
+      <Header />
       <Routes>
+        <Route path="/" element={<MainPage />} />
         <Route
-          index
+          path="/favorites"
           element={
-            <ProtectedRoute>
-              <MainPage />
-            </ProtectedRoute>
+            <PrivateRoute>
+              <FavoritesPage />
+            </PrivateRoute>
           }
         />
         <Route path="/login" element={<LoginPage />} />
-
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );

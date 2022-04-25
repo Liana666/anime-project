@@ -4,13 +4,14 @@ import { StrictMode } from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import { App } from "./App";
-import { store } from "./store/store";
-import "./firebase";
+import { setUpStore } from "./store/store";
+import "./components/firebase/firebase";
 
 import "./index.css";
 
 const container = document.getElementById("root") as HTMLElement;
 const root = ReactDOM.createRoot(container);
+const store = setUpStore();
 
 const app = (
   <StrictMode>

@@ -1,15 +1,16 @@
 import { FC, useEffect } from "react";
 import { useState } from "react";
 
-import { FormContainerType } from "../../../types/types";
-import { isValidEmail } from "../../../hooks/isValidEmail";
-import { isValidPassword } from "../../../hooks/isValidPassword";
+import { isValidEmail } from "../../../utils/helpers";
+import { isValidPassword } from "../../../utils/helpers";
 import { Form } from "./Form";
 
-export const FormContainer: FC<FormContainerType> = ({
-  btnValue,
-  handleSubmit,
-}) => {
+type Props = {
+  btnValue: string;
+  handleSubmit: (email: string, password: string) => void;
+};
+
+export const FormContainer: FC<Props> = ({ btnValue, handleSubmit }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailActive, setEmailActive] = useState(false);

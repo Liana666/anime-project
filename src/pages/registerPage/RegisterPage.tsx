@@ -1,22 +1,24 @@
 import { Link } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
 
-import gif from "../../img/oni.gif";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { LoginAndRegister } from "../../hoc/LoginAndRegister";
 
-export const LoginPage = () => {
+import gif from "../../img/oni.gif";
+
+export const RegisterPage = () => {
   return (
     <>
       <img className="videoImg" src={gif} alt="" />
 
       <div className="videoContainer">
         <div className="videoWrapper">
-          <div className="videoLogo">AniPlay</div>
-
-          <LoginAndRegister firebaseFunction={signInWithEmailAndPassword} />
+          <LoginAndRegister
+            btnValue="Register"
+            firebaseFunction={createUserWithEmailAndPassword}
+          />
 
           <p className="linkRegister">
-            Or <Link to="/register">register</Link>
+            Already have an account? <Link to="/">Sign in</Link>
           </p>
         </div>
       </div>
