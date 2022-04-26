@@ -9,8 +9,6 @@ export const AnimeSidebar = () => {
     <div className="sidebar">
       <AnimeFilterContainer />
       <hr style={{ marginBottom: 15 }} />
-      <hr style={{ marginBottom: 15 }} />
-      <hr style={{ marginBottom: 15 }} />
       <SearchAnimeContainer />
       <UpdateAnimeContainer />
     </div>

@@ -10,9 +10,10 @@ export const animeApi = createApi({
     baseQuery: fetchBaseQuery({baseUrl:"https://api.aniapi.com/v1/"}),
     endpoints: (build) => ({
         getRandomAnime: build.query({
-            query: (count: number = 20) => `random/anime/${count}`,
+            query: (count: number) => `random/anime/${count}`,
             transformResponse: (response: { data: ItemAnime[] }) => {
-                return response.data;
+                const anime = response.data.filter(itemAnime => itemAnime.descriptions.en && itemAnime.titles.en && itemAnime.titles.jp)
+                return anime;
               },
         }),
         getGenres: build.query({
@@ -33,14 +34,10 @@ export const animeApi = createApi({
                 return response.data.documents;
               },
         }),
-        getItemAnime: build.query<any, number>({
+        getItemAnime: build.query<ItemAnime, number>({
             query: (id) => `anime/${id}`,
-            transformResponse: (response: { data: any }) => {
-                console.log(response.data)
-                if(response.data) {
-                    return response.data
-                }
-                
+            transformResponse: (response: { data: ItemAnime }) => {
+                return response.data
               },
         })
     })  

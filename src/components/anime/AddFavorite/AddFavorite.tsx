@@ -13,8 +13,9 @@ type Props = {
 
 export const AddFavorite: React.FC<Props> = ({ id }) => {
   const dispatch = useAppDispatch();
-  const email = useAppSelector((state) => state.user.email);
   const navigate = useNavigate();
+  const email = useAppSelector((state) => state.user.email);
+
   const favorites = UserFavoriteAnime();
 
   const addFavorites = () => {

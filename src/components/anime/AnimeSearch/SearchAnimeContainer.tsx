@@ -10,8 +10,9 @@ import { SearchAnime } from "./SearchAnime";
 export const SearchAnimeContainer = () => {
   const dispatch = useAppDispatch();
   const [searchTerm, setSearchTerm] = useState("");
-  const debouncedSearchTerm = useDebounce(searchTerm, 300);
   const [filteredSearchTerm, setFilteredSearchTerm] = useState(searchTerm);
+
+  const debouncedSearchTerm = useDebounce(searchTerm, 300);
   const { data, fulfilledTimeStamp } =
     animeApi.useSearchAnimeQuery(filteredSearchTerm);
 

@@ -8,13 +8,15 @@ import { useDebounce } from "../../../hooks/useDebounce";
 import { AnimeFilter } from "./AnimeFilter";
 
 export const AnimeFilterContainer = () => {
-  const { data } = animeApi.useGetGenresQuery(0);
+  const dispatch = useDispatch();
   const [genres, setGenre] = useState("");
   const [yearNoDebounce, setYearNoDebounce] = useState("");
-  const debouncedSearchTerm = useDebounce(yearNoDebounce, 300);
   const [year, setYear] = useState(yearNoDebounce);
+
   const newAnime = animeApi.useGetFilterQuery({ year, genres });
-  const dispatch = useDispatch();
+  const { data } = animeApi.useGetGenresQuery(0);
+
+  const debouncedSearchTerm = useDebounce(yearNoDebounce, 300);
 
   useEffect(() => {
     if (debouncedSearchTerm.length > 0) {
@@ -33,14 +35,18 @@ export const AnimeFilterContainer = () => {
   }
 
   return (
-    <AnimeFilter
-      genres={genres}
-      yearNoDebounce={yearNoDebounce}
-      data={data}
-      setGenre={setGenre}
-      setYearNoDebounce={setYearNoDebounce}
-      filterAnime={filterAnime}
-      clearFilter={clearFilter}
-    />
+    <>
+      {data && (
+        <AnimeFilter
+          genres={genres}
+          yearNoDebounce={yearNoDebounce}
+          data={data}
+          setGenre={setGenre}
+          setYearNoDebounce={setYearNoDebounce}
+          filterAnime={filterAnime}
+          clearFilter={clearFilter}
+        />
+      )}
+    </>
   );
 };

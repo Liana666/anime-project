@@ -1,6 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-import { Anime } from './../../types/types';   
+import { createSlice } from "@reduxjs/toolkit";;   
  
 type Item = {
     email: string 
@@ -45,9 +43,8 @@ export const userSlice = createSlice({
         removeFavoriteAnime(state, action) {
            state.items.forEach(item => {
                 if(item.email === state.email)  {
-                let myIndex = item.ids.indexOf(action.payload.id);
-                item.ids.splice(myIndex, 1);
-                console.log(item.ids);
+                const currentId = item.ids.indexOf(action.payload.id);
+                item.ids.splice(currentId, 1);
                 }    
             })
         },

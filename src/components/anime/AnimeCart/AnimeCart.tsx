@@ -1,22 +1,24 @@
-import { Anime } from "../../../types/types";
+import { ItemAnime } from "../../../types/types";
 import { AddFavorite } from "../AddFavorite/AddFavorite";
 
 import "./AnimeCart.css";
 
-export const AnimeCart: React.FC<Anime> = ({
+export const AnimeCart: React.FC<ItemAnime> = ({
   titles,
-  description,
+  descriptions,
   start_date,
   cover_image,
   genres,
   id,
-  episode_duration,
-  season_period,
   cover_color,
   end_date,
 }) => {
-  const title_start = titles?.en.split(" ").slice(0, -1).join(" ");
-  const title_end = titles.en.split(" ").pop();
+  const titleStart = titles.en && titles.en.split(" ").slice(0, -1).join(" ");
+  const titleEnd = titles.en && titles.en.split(" ").pop();
+  const titleJp = titles.jp && titles.jp.slice(0, 9);
+  const dateStart = start_date.slice(0, 10);
+  const dateEnd = end_date.slice(0, 10);
+  const description = descriptions.en && descriptions.en.slice(0, 150) + "...";
 
   return (
     <div className="cart">
@@ -24,18 +26,18 @@ export const AnimeCart: React.FC<Anime> = ({
         <AddFavorite id={id} />
         <div className="cart__title-wrapper">
           <div className="cart__title">
-            <span>{title_start}</span>{" "}
-            <span style={{ color: cover_color }}>{title_end}</span>
+            <span>{titleStart}</span>{" "}
+            <span style={{ color: cover_color }}>{titleEnd}</span>
           </div>
           <div className="cart__date">
             <div>
               <p>Start date: </p>
-              {start_date.slice(0, 10)}
+              {dateStart}
             </div>
             <hr />
             <div>
               <p>End date: </p>
-              {start_date.slice(0, 10)}
+              {dateEnd}
             </div>
           </div>
         </div>
@@ -54,19 +56,17 @@ export const AnimeCart: React.FC<Anime> = ({
           {genres.map((genre, index, array) => (
             <li key={genre}>
               {genre}
-              {index !== array.length - 1 ? "," : null}
+              {index !== array.length - 1 && ","}
             </li>
           ))}
         </ul>
 
-        <div className="cart__descr">
-          {description ? description.slice(0, 150) + "..." : null}
-        </div>
+        <div className="cart__descr">{description}</div>
         <button className="btn">More</button>
       </div>
       <div className="cart__cover">
         <div style={{ color: cover_color }} className="cart__title--jp">
-          {titles.jp?.slice(0, 7)}
+          {titleJp}
         </div>
         <img src={cover_image} alt="" />
       </div>

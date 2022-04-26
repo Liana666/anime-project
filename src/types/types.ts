@@ -52,6 +52,7 @@ export type ItemAnime = {
 
 
 type Titles = {
+    rj: string
     en: string
     jp: string
 }

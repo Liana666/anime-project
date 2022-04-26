@@ -3,7 +3,7 @@ import "./AnimeFilter.css";
 type Props = {
   setGenre: React.Dispatch<React.SetStateAction<string>>;
   genres: string;
-  data: any;
+  data: string[];
   setYearNoDebounce: React.Dispatch<React.SetStateAction<string>>;
   yearNoDebounce: string;
   filterAnime: () => void;
@@ -31,7 +31,7 @@ export const AnimeFilter: React.FC<Props> = ({
       >
         <option>All genres</option>
         {data &&
-          data.map((genre: string) => (
+          data.map((genre) => (
             <option key={genre} value={genre}>
               {genre}
             </option>
@@ -41,9 +41,7 @@ export const AnimeFilter: React.FC<Props> = ({
         className="filter-input"
         type="text"
         name="year"
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setYearNoDebounce(e.target.value)
-        }
+        onChange={(e) => setYearNoDebounce(e.target.value)}
         value={yearNoDebounce}
         disabled={!genres}
         placeholder="Year"
