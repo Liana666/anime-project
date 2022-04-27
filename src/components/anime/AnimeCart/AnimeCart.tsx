@@ -1,5 +1,5 @@
 import { ItemAnime } from "../../../types/types";
-import { AddFavorite } from "../AddFavorite/AddFavorite";
+import { AddFavorite } from "../../favorites/AddFavorite/AddFavorite";
 
 import "./AnimeCart.css";
 
@@ -13,6 +13,7 @@ export const AnimeCart: React.FC<ItemAnime> = ({
   cover_color,
   end_date,
 }) => {
+  const isScroll = genres.length > 12;
   const titleStart = titles.en && titles.en.split(" ").slice(0, -1).join(" ");
   const titleEnd = titles.en && titles.en.split(" ").pop();
   const titleJp = titles.jp && titles.jp.slice(0, 9);
@@ -44,9 +45,7 @@ export const AnimeCart: React.FC<ItemAnime> = ({
 
         <ul
           className={
-            genres.length > 12
-              ? "cart__genres cart__genres--show"
-              : "cart__genres"
+            isScroll ? "cart__genres cart__genres--show" : "cart__genres"
           }
         >
           {genres.length > 0 && (
