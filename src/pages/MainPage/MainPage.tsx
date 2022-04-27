@@ -9,27 +9,18 @@ import {
 } from "../../components/anime";
 
 import "./MainPage.css";
-
-import img from "../../img/img4.jpg";
+import back from "../../img/back.jpg";
+import { AnimeSidebar } from "../../components/anime/AnimeSidebar/AnimeSidebar";
 
 export const MainPage = () => {
   return (
     <>
-      <main className="main">
-        <img className="back" src={img} alt="" />
-        <div className="main__container">
-          <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <div className="anime-filter">
-              <AnimeFilterContainer />
-              <div className="search">
-                <SearchAnimeContainer />
-                <UpdateAnimeContainer />
-              </div>
-            </div>
-            <AnimeListContainer />
-          </ErrorBoundary>
-        </div>
-      </main>
+      <AnimeSidebar />
+      <div className="container">
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <AnimeListContainer />
+        </ErrorBoundary>
+      </div>
     </>
   );
 };

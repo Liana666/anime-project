@@ -14,20 +14,22 @@ export function App() {
   return (
     <div className="App">
       <Header />
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route
-          path="/favorites"
-          element={
-            <PrivateRoute>
-              <FavoritesPage />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route
+            path="/favorites"
+            element={
+              <PrivateRoute>
+                <FavoritesPage />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </main>
     </div>
   );
 }

@@ -25,38 +25,36 @@ export type SearchAndFilterData ={
 }
 
 export type ItemAnime = {
-    anilist_id: number
-    mal_id: number
-    format: number
-    status: number
+    anilist_id?: number
+    mal_id?: number
+    format?: number
+    status?: number
     titles: Titles
     descriptions: Descriptions
     start_date: string
     end_date: string
-    weekly_airing_day: number
+    weekly_airing_day?: number
     season_period: number
     season_year: number
-    episodes_count: number
-    episode_duration: number
+    episodes_count?: number
+    episode_duration?: number
     cover_image: string
     cover_color: string
     banner_image: string
     genres: string[]
-    sagas: Sagas
-    score: number
-    recommendations: number[]
-    nsfw: boolean
-    has_cover_image: boolean
+    sagas?: Sagas
+    score?: number
+    recommendations?: number[]
+    nsfw?: boolean
+    has_cover_image?: boolean
     id: number
 }
 
 
 type Titles = {
-    rj?: string,
+    rj: string
     en: string
     jp: string
-    fr: string
-    it: string
 }
 
 type Descriptions = {
@@ -79,5 +77,16 @@ export type AnimeResponse = {
     genres: string
 }
 
-
+export type Anime = {
+    id: number 
+    titles: Titles
+    cover_image: string
+    description: string
+    genres: string[]
+    start_date: string
+    end_date: string
+    season_period: number
+    episode_duration: number
+    cover_color: string
+}
 

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { RootState } from "../../../store/store";
+import { useAppSelector } from "../../../hooks/useReduxTypes";
 import { animeApi } from "../../../store/api/animeApi";
 import { addNewAnime } from "../../../store/slices/animeSlice";
 
@@ -9,10 +9,11 @@ import { Preloader } from "../../preloader/Preloader";
 import { AnimeList } from "./AnimeList";
 
 export const AnimeListContainer = () => {
-  const { data, isLoading, fulfilledTimeStamp } =
-    animeApi.useGetRandomAnimeQuery(10);
   const dispatch = useDispatch();
-  const anime = useSelector((state: RootState) => state.anime.anime);
+  const anime = useAppSelector((state) => state.anime.anime);
+
+  const { data, isLoading, fulfilledTimeStamp } =
+    animeApi.useGetRandomAnimeQuery(40);
 
   useEffect(() => {
     fulfilledTimeStamp && dispatch(addNewAnime(data));

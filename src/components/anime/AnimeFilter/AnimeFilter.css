@@ -5,23 +5,33 @@
 
 .filter-select,
 .filter-input {
-    margin-right: 5px;
-    background: rgba(5, 5, 5, 0.486);
-    -webkit-backdrop-filter: blur( 7px );
-    backdrop-filter: blur( 7px );
-    border-radius: 5px;
-    border: none;
-    height: 42px;
-    color: #fff;
+    margin-bottom: 15px;
     padding: 10px;
-    font-size: 15px;
-    opacity: 0.8;
-    outline: none;
+
+    height: auto;
+    width: 100%;
+
+    border-right: 5px solid transparent;
+    outline: 1px solid #fff;
+    background: #191721;
+    color: #fff;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 133.5%;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
 }
 
 .filter-input::placeholder {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 133.5%;
     color: #fff;
-    font-size: 15px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
 }
 
 .filter-input:disabled::placeholder {
@@ -30,18 +40,22 @@
 
 
 .filter-btn {
+    margin-bottom: 15px;
     padding: 10px 30px;
-    height: 42px;
+    height: auto;
+    width: 100%;
 
-    background: #a1004e57;
-    border-radius: 6px;
     outline: none;
-    border: none;
+    border: 1px solid #fff;
+    background: none;
   
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 140%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 133.5%;
     color: #fff;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
   
     transition: 0.5s ease 0s;
     opacity: 0.8;
@@ -50,8 +64,8 @@
 
 .filter-btn:hover {
     cursor: pointer;
-    background: #a1004e71;
-    box-shadow: 0 0px 15px 0 rgb(192 16 101 / 54%);
+    background: #fff;
+    color: rgba(0, 0, 0, 0.822);
   
     transition: 0.5s ease 0s;
     opacity: 0.9;
