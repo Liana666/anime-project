@@ -35,8 +35,8 @@ export type ItemAnime = {
     end_date: string
     weekly_airing_day?: number
     season_period: number
-    season_year: number
-    episodes_count?: number
+    season_year?: number
+    episodes_count: number
     episode_duration?: number
     cover_image: string
     cover_color: string
@@ -51,13 +51,13 @@ export type ItemAnime = {
 }
 
 
-type Titles = {
+export type Titles = {
     rj: string
     en: string
     jp: string
 }
 
-type Descriptions = {
+export type Descriptions = {
     en: string
     jp: string
     fr: string
@@ -73,8 +73,8 @@ type Sagas = {
 }
 
 export type AnimeResponse = {
-    year: string
-    genres: string
+    year?: string
+    genres?: string
 }
 
 export type Anime = {

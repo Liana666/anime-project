@@ -1,5 +1,4 @@
-import { FavoritesAnime } from "../../components/anime";
-import { FavoriteAnimeContainer } from "../../components/anime/FavoritesAnime/FavoriteAnimeContainer";
+import { FavoriteAnimeContainer } from "../../components/favorites";
 
 export const FavoritesPage = () => {
   return (

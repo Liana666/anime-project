@@ -5,8 +5,11 @@ import { RegisterPage } from "./pages/registerPage/RegisterPage";
 import { MainPage } from "./pages/mainPage/MainPage";
 import { PrivateRoute } from "./hoc/PrivateRoute";
 import { Header } from "./components/layout/Header";
-import { FavoritesPage } from "./pages/FavoritesPage/FavoritesPage";
+import { FavoritesPage } from "./pages/favoritesPage/FavoritesPage";
 import { ErrorPage } from "./pages/errorPage/errorPage";
+import { DetailsPage } from "./pages/singlePage/DetailsPage";
+import { SearchPage } from "./pages/searchPage/SearchPage";
+import { FilterPage } from "./pages/filterPage/FilterPage";
 
 import "./App.css";
 
@@ -25,6 +28,12 @@ export function App() {
               </PrivateRoute>
             }
           />
+          <Route path="/details/:id" element={<DetailsPage />} />
+          <Route
+            path="/filter/genre=:genres/year=:year"
+            element={<FilterPage />}
+          />
+          <Route path="/search/title=:title" element={<SearchPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="*" element={<ErrorPage />} />

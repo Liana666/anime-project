@@ -10,7 +10,7 @@ type Props = {
   clearFilter: () => void;
 };
 
-export const AnimeFilter: React.FC<Props> = ({
+export const FilterForm: React.FC<Props> = ({
   setGenre,
   genres,
   data,
@@ -43,17 +43,17 @@ export const AnimeFilter: React.FC<Props> = ({
         name="year"
         onChange={(e) => setYearNoDebounce(e.target.value)}
         value={yearNoDebounce}
-        disabled={!genres}
         placeholder="Year"
       />
       <button
         style={{ marginRight: 5 }}
         onClick={filterAnime}
         className="filter-btn"
+        disabled={!genres}
       >
         Apply
       </button>
-      <button onClick={clearFilter} className="filter-btn">
+      <button disabled={!genres} onClick={clearFilter} className="filter-btn">
         Clear
       </button>
     </>

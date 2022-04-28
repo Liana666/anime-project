@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { auth } from "../../firebase/firebase";
 import { useAppDispatch } from "../../../hooks/useReduxTypes";
@@ -10,6 +11,7 @@ import "./Header.css";
 import { LogoutIcon } from "../../svg/LogoutIcon";
 
 export const Header = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [emailUser, setEmailUser] = useState<string | null>(null);
 
@@ -26,6 +28,7 @@ export const Header = () => {
     auth.signOut();
     dispatch(login(null));
     setEmailUser(null);
+    navigate("/login");
   };
 
   return (
