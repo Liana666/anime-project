@@ -1,9 +1,8 @@
-import { UserFavoriteAnime } from "../../../store/selectors/selectors";
+import { useFavoriteAnime } from "../../../store/selectors/selectors";
 import { FavoritesAnime } from "./FavoritesAnime";
 
 export const FavoriteAnimeContainer = () => {
-  const ids = UserFavoriteAnime();
-
+  const ids = useFavoriteAnime();
   return (
     <div className="anime-list">
       {ids && ids.length > 0 ? (

@@ -1,4 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+
 import { 
     persistStore, 
     persistReducer,  
@@ -12,12 +13,12 @@ import storage from 'redux-persist/lib/storage';
 
 import { userSlice } from "./slices/userSlice";
 import { customMiddleWare } from './middleware/customMiddleWare';
-import { animeSlice } from './slices/animeSlice';
 import { animeApi } from './api/animeApi';
+
+
 
 const rootReducer = combineReducers({
     user: userSlice.reducer,
-    anime: animeSlice.reducer,
     [animeApi.reducerPath]: animeApi.reducer
 })
 
@@ -27,7 +28,7 @@ const persistConfig = {
     blacklist: [animeApi.reducerPath]
 }
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig,  rootReducer)
 
 export const store = configureStore({
     reducer: persistedReducer,

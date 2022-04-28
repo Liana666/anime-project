@@ -4,7 +4,7 @@ type Props = {
   searchTerm: string;
 };
 
-export const SearchAnime: React.FC<Props> = ({
+export const SearchForm: React.FC<Props> = ({
   setSearchTerm,
   searchAnime,
   searchTerm,
@@ -16,10 +16,17 @@ export const SearchAnime: React.FC<Props> = ({
         type="text"
         name="anime"
         placeholder="Anime name"
-        onKeyPress={searchAnime}
         onChange={(e) => setSearchTerm(e.target.value)}
         value={searchTerm}
       />
+      <button
+        style={{ marginRight: 5 }}
+        onClick={searchAnime}
+        className="filter-btn"
+        disabled={!searchTerm}
+      >
+        Search
+      </button>
     </>
   );
 };

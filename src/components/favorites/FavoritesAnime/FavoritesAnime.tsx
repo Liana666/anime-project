@@ -1,7 +1,7 @@
 import { animeApi } from "../../../store/api/animeApi";
 
 import { Preloader } from "../../preloader/Preloader";
-import { AnimeCart } from "../AnimeCart/AnimeCart";
+import { AnimeCart } from "../../anime/AnimeCart/AnimeCart";
 
 type Props = {
   id: number;
@@ -14,5 +14,5 @@ export const FavoritesAnime: React.FC<Props> = ({ id }) => {
     return <Preloader />;
   }
 
-  return <>{isSuccess && <AnimeCart key={data.id} {...data} />}</>;
+  return isSuccess && data ? <AnimeCart {...data} /> : null;
 };

@@ -1,4 +1,5 @@
 import { AuthForm } from "../../../types/types";
+import PropTypes from "prop-types";
 
 import "./Form.css";
 
@@ -55,4 +56,18 @@ export const Form: React.FC<AuthForm> = ({
       </button>
     </form>
   );
+};
+
+Form.propTypes = {
+  btnValue: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  passwordError: PropTypes.string.isRequired,
+  formValid: PropTypes.bool.isRequired,
+  passwordActive: PropTypes.bool.isRequired,
+  emailActive: PropTypes.bool.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  handleEmail: PropTypes.func.isRequired,
+  handleBlur: PropTypes.func.isRequired,
+  handlePassword: PropTypes.func.isRequired,
 };
