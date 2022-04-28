@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+
 import { ItemAnime } from "../../../types/types";
 import { AddFavorite } from "../../favorites/AddFavorite/AddFavorite";
 import { preparingAnimeDetails } from "../../../utils/helpers/preparingAnimeDetails";
@@ -79,4 +81,24 @@ export const AnimeCart: React.FC<ItemAnime> = ({
       </div>
     </div>
   );
+};
+
+AnimeCart.propTypes = {
+  titles: PropTypes.shape({
+    rj: PropTypes.string.isRequired,
+    en: PropTypes.string.isRequired,
+    jp: PropTypes.string.isRequired,
+  }).isRequired,
+  descriptions: PropTypes.shape({
+    en: PropTypes.string.isRequired,
+    jp: PropTypes.string.isRequired,
+    fr: PropTypes.string.isRequired,
+    it: PropTypes.string.isRequired,
+  }).isRequired,
+  start_date: PropTypes.string.isRequired,
+  cover_image: PropTypes.string.isRequired,
+  genres: PropTypes.array.isRequired,
+  id: PropTypes.number.isRequired,
+  cover_color: PropTypes.string.isRequired,
+  end_date: PropTypes.string.isRequired,
 };
