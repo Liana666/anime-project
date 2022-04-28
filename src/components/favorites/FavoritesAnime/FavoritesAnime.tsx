@@ -14,5 +14,5 @@ export const FavoritesAnime: React.FC<Props> = ({ id }) => {
     return <Preloader />;
   }
 
-  return <>{isSuccess && data && <AnimeCart {...data} />}</>;
+  return isSuccess && data ? <AnimeCart {...data} /> : null;
 };

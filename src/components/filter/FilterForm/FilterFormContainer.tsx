@@ -2,32 +2,28 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { animeApi } from "../../../store/api/animeApi";
+import { addHistory } from "../../../store/slices/userSlice";
 
-import { useDebounce } from "../../../hooks/useDebounce";
 import { FilterForm } from "./FilterForm";
+import { useAppDispatch } from "../../../hooks/useReduxTypes";
 
 export const FilterFormContainer = () => {
+  const dispatch = useAppDispatch();
   const [genres, setGenre] = useState("");
-  const [yearNoDebounce, setYearNoDebounce] = useState("2022");
-  const [year, setYear] = useState(yearNoDebounce);
+  const [year, setYear] = useState("2022");
   const navigate = useNavigate();
 
   const { data } = animeApi.useGetGenresQuery(0);
-  const debouncedSearchTerm = useDebounce(yearNoDebounce, 300);
-
-  useEffect(() => {
-    if (debouncedSearchTerm.length > 0) {
-      setYear(debouncedSearchTerm);
-    }
-  }, [debouncedSearchTerm]);
 
   function filterAnime() {
-    navigate(`/filter/genre=${genres}/year=${year}`);
+    const filterUrl = `/filter/genre=${genres}/year=${year}`;
+    dispatch(addHistory(filterUrl));
+    navigate(filterUrl);
   }
 
   function clearFilter() {
     setGenre("");
-    setYearNoDebounce("");
+    setYear("");
   }
 
   return (
@@ -35,10 +31,10 @@ export const FilterFormContainer = () => {
       {data && (
         <FilterForm
           genres={genres}
-          yearNoDebounce={yearNoDebounce}
+          year={year}
           data={data}
           setGenre={setGenre}
-          setYearNoDebounce={setYearNoDebounce}
+          setYear={setYear}
           filterAnime={filterAnime}
           clearFilter={clearFilter}
         />

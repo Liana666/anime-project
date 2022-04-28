@@ -16,7 +16,9 @@ export const AnimeSearch = () => {
     return <Preloader />;
   }
 
-  return (
-    <>{isSuccess && data?.length ? <AnimeList anime={data} /> : "Not Found"}</>
+  return isSuccess && data?.length ? (
+    <AnimeList anime={data} />
+  ) : (
+    <h2>Not Found</h2>
   );
 };

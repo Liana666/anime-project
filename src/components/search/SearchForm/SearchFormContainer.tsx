@@ -1,23 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useDebounce } from "../../../hooks/useDebounce";
+import { addHistory } from "../../../store/slices/userSlice";
+
 import { SearchForm } from "./SearchForm";
+import { useAppDispatch } from "../../../hooks/useReduxTypes";
 
 export const SearchFormContainer = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredSearchTerm, setFilteredSearchTerm] = useState(searchTerm);
-  const debouncedSearchTerm = useDebounce(searchTerm, 600);
-
-  useEffect(() => {
-    if (debouncedSearchTerm.length > 0) {
-      setFilteredSearchTerm(debouncedSearchTerm);
-    }
-  }, [debouncedSearchTerm]);
 
   function searchAnime() {
-    navigate(`/search/title=${filteredSearchTerm}`);
+    const searchUrl = `/search/title=${searchTerm}`;
+    dispatch(addHistory(searchUrl));
+    navigate(searchUrl);
   }
 
   return (

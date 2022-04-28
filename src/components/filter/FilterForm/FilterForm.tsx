@@ -1,11 +1,11 @@
-import "./AnimeFilter.css";
+import "./FilterForm.css";
 
 type Props = {
   setGenre: React.Dispatch<React.SetStateAction<string>>;
   genres: string;
   data: string[];
-  setYearNoDebounce: React.Dispatch<React.SetStateAction<string>>;
-  yearNoDebounce: string;
+  setYear: React.Dispatch<React.SetStateAction<string>>;
+  year: string;
   filterAnime: () => void;
   clearFilter: () => void;
 };
@@ -14,8 +14,8 @@ export const FilterForm: React.FC<Props> = ({
   setGenre,
   genres,
   data,
-  setYearNoDebounce,
-  yearNoDebounce,
+  setYear,
+  year,
   filterAnime,
   clearFilter,
 }) => {
@@ -41,8 +41,8 @@ export const FilterForm: React.FC<Props> = ({
         className="filter-input"
         type="text"
         name="year"
-        onChange={(e) => setYearNoDebounce(e.target.value)}
-        value={yearNoDebounce}
+        onChange={(e) => setYear(e.target.value)}
+        value={year}
         placeholder="Year"
       />
       <button
