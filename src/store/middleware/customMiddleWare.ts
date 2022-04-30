@@ -1,7 +1,12 @@
 import { MiddlewareAPI, Dispatch } from "redux";
+import { auth } from "../../components/firebase/firebase";
 
 export const customMiddleWare = (store:MiddlewareAPI) => (next: Dispatch) => (action: any) => {
-    typeof action == "function" ?
-    action(store.dispatch, store.getState) :
-    next(action)
+  const user = auth.currentUser;
+
+  if(!user && action.type === "user/addHistory") {
+    return;
+  }
+
+    return next(action);
   }

@@ -8,7 +8,7 @@ export const FavoriteAnimeContainer = () => {
       {ids && ids.length > 0 ? (
         ids.map((id) => <FavoritesAnime key={id} id={id} />)
       ) : (
-        <h2>As long as there is no favorite</h2>
+        <h2>No favorites anime</h2>
       )}
     </div>
   );

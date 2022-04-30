@@ -1,0 +1,23 @@
+.history__item {
+    display: flex;
+    gap: 40px;
+}
+
+.history__check {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #fff;
+    background: none;
+    outline: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+    font-size: 31px;
+}
+
+.history__check:hover {
+    cursor: pointer;
+}

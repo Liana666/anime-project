@@ -1,5 +1,6 @@
 import { ItemAnime } from "../../types/types";
 import { AddFavorite } from "../favorites";
+import { preparingAnimeDetails } from "../../utils/helpers/preparingAnimeDetails";
 
 import "./DetailsAnime.css";
 
@@ -16,11 +17,8 @@ export const DetailsAnime: React.FC<ItemAnime> = ({
   banner_image,
   genres,
 }) => {
-  const titleStart = titles.en && titles.en.split(" ").slice(0, -1).join(" ");
-  const titleEnd = titles.en && titles.en.split(" ").pop();
-  const titleJp = titles.jp && titles.jp.slice(0, 9);
-  const dateStart = start_date.slice(0, 10);
-  const dateEnd = end_date.slice(0, 10);
+  const { titleStart, titleEnd, titleJp, dateStart, dateEnd } =
+    preparingAnimeDetails(genres, titles, start_date, end_date, descriptions);
 
   return (
     <div className="single">

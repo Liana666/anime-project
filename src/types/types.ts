@@ -90,3 +90,8 @@ export type Anime = {
     cover_color: string
 }
 
+export type HistoryItem = {
+    url: string
+    date: string
+    id: string
+}

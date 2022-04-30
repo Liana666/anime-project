@@ -1,37 +1,55 @@
-import { createSlice } from "@reduxjs/toolkit";;   
- 
-type Item = {
+import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from 'uuid';
+
+import { HistoryItem } from './../../types/types';
+
+type History = {
+    email: string 
+    items: HistoryItem[]
+}
+
+type Favorited = {
     email: string 
     ids: number[]
 }
     
 type InitialState = {
     email: string 
-    items: Item[]
+    favorites: Favorited[]
+    history: History[]
 }
      
 const initialState: InitialState = {
     email: '',
-    items:[]
+    favorites:[],
+    history: []
 };
 
 export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
+
+        login(state, action) {
+            state.email = action.payload;
+        },
+
+        logout(state) {
+            state.email = '';
+        },
+
         addFavoriteAnime(state, action) {
-  
-            if(state.items.length === 0) {
-                state.items.push({
+            if(state.favorites.length === 0) {
+                state.favorites.push({
                     email: state.email,
                     ids: [action.payload.id]
                 })
             } else {
-                state.items.forEach((element, index) => {
+                state.favorites.forEach((element, index) => {
                     if (element.email === state.email) {
-                        state.items[index].ids.push(action.payload.id)
-                    } else if (!state.items.some(item => item.email === state.email)){
-                        state.items.push({
+                        state.favorites[index].ids.push(action.payload.id)
+                    } else if (!state.favorites.some(item => item.email === state.email)){
+                        state.favorites.push({
                             email: state.email,
                             ids: [action.payload.id]
                         })
@@ -41,25 +59,53 @@ export const userSlice = createSlice({
         },
 
         removeFavoriteAnime(state, action) {
-           state.items.forEach(item => {
+           state.favorites.forEach(item => {
                 if(item.email === state.email)  {
                 const currentId = item.ids.indexOf(action.payload.id);
                 item.ids.splice(currentId, 1);
                 }    
             })
         },
-        clearFavoriteAnime(state) {
-            state.items = [];
+
+        addHistory(state, action) {
+            if(state.history.length === 0) {
+                state.history.push({
+                    email: state.email,
+                    items: [{
+                        url: action.payload.url,
+                        date: action.payload.date,
+                        id: uuidv4()
+                    }]
+                })
+            } else {
+                state.history.forEach((item, index) => {
+                    if (item.email === state.email) {
+                        state.history[index].items.push({
+                            url: action.payload.url,
+                            date: action.payload.date,
+                            id: uuidv4()
+                        });
+                     
+                    } else if (!state.history.some(item => item.email === state.email)){
+                        state.history.push({
+                            email: state.email,
+                            items: [{
+                                url: action.payload.url,
+                                date: action.payload.date,
+                                id: uuidv4()
+                            }]
+                        })
+                    }
+                });
+            }
         },
         
-        login(state, action) {
-            state.email = action.payload;
-        },
-
-        logout(state) {
-            state.email = '';
-        }
-    },
+        removeHistory(state, action) {
+            state.history.forEach(history => 
+                history.items = history.items.filter(item =>  !action.payload.includes(item.id)));
+    }
+        
+    }
 })
 
-export const { addFavoriteAnime, removeFavoriteAnime, clearFavoriteAnime, login, logout } = userSlice.actions;
+export const { login, logout, addFavoriteAnime, removeFavoriteAnime, addHistory, removeHistory} = userSlice.actions;

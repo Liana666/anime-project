@@ -5,6 +5,7 @@ import { addHistory } from "../../../store/slices/userSlice";
 
 import { SearchForm } from "./SearchForm";
 import { useAppDispatch } from "../../../hooks/useReduxTypes";
+import { getDateHistory } from "../../../utils/helpers/getDateHistory";
 
 export const SearchFormContainer = () => {
   const dispatch = useAppDispatch();
@@ -12,8 +13,9 @@ export const SearchFormContainer = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   function searchAnime() {
+    const date = getDateHistory();
     const searchUrl = `/search/title=${searchTerm}`;
-    dispatch(addHistory(searchUrl));
+    dispatch(addHistory({ url: searchUrl, date: date }));
     navigate(searchUrl);
   }
 

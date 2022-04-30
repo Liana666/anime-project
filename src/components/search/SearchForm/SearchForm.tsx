@@ -27,6 +27,13 @@ export const SearchForm: React.FC<Props> = ({
       >
         Search
       </button>
+      <button
+        disabled={!searchTerm}
+        onClick={() => setSearchTerm("")}
+        className="filter-btn"
+      >
+        Clear
+      </button>
     </>
   );
 };

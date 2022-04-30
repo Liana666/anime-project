@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { animeApi } from "../../../store/api/animeApi";
 import { addHistory } from "../../../store/slices/userSlice";
+import { getDateHistory } from "../../../utils/helpers/getDateHistory";
 
 import { FilterForm } from "./FilterForm";
 import { useAppDispatch } from "../../../hooks/useReduxTypes";
@@ -16,8 +17,9 @@ export const FilterFormContainer = () => {
   const { data } = animeApi.useGetGenresQuery(0);
 
   function filterAnime() {
+    const date = getDateHistory();
     const filterUrl = `/filter/genre=${genres}/year=${year}`;
-    dispatch(addHistory(filterUrl));
+    dispatch(addHistory({ url: filterUrl, date: date }));
     navigate(filterUrl);
   }
 

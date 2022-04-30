@@ -10,6 +10,7 @@ import { ErrorPage } from "./pages/errorPage/errorPage";
 import { DetailsPage } from "./pages/singlePage/DetailsPage";
 import { SearchPage } from "./pages/searchPage/SearchPage";
 import { FilterPage } from "./pages/filterPage/FilterPage";
+import { HistoryPage } from "./pages/historyPage/HistoryPage";
 
 import "./App.css";
 
@@ -32,6 +33,14 @@ export function App() {
           <Route
             path="/filter/genre=:genres/year=:year"
             element={<FilterPage />}
+          />
+          <Route
+            path="/history"
+            element={
+              <PrivateRoute>
+                <HistoryPage />
+              </PrivateRoute>
+            }
           />
           <Route path="/search/title=:title" element={<SearchPage />} />
           <Route path="/login" element={<LoginPage />} />
