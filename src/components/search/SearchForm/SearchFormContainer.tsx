@@ -15,7 +15,7 @@ export const SearchFormContainer = () => {
   function searchAnime() {
     const date = getDateHistory();
     const searchUrl = `/search/title=${searchTerm}`;
-    dispatch(addHistory({ url: searchUrl, date: date }));
+    dispatch(addHistory({ url: searchUrl, date }));
     navigate(searchUrl);
   }
 

@@ -19,7 +19,7 @@ export const FilterFormContainer = () => {
   function filterAnime() {
     const date = getDateHistory();
     const filterUrl = `/filter/genre=${genres}/year=${year}`;
-    dispatch(addHistory({ url: filterUrl, date: date }));
+    dispatch(addHistory({ url: filterUrl, date }));
     navigate(filterUrl);
   }
 
