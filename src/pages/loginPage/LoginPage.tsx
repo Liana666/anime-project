@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { LoginAndRegister } from "../../hoc/LoginAndRegister";
 
-import gif from "../../img/oni.gif";
+import gif from "../../img/smile.gif";
 
 export const LoginPage = () => {
   return (
