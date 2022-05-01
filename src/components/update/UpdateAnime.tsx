@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Button } from "../shared";
 
 type Props = {
   updateRandomAnime: () => void;
@@ -6,9 +7,11 @@ type Props = {
 
 export const UpdateAnime: React.FC<Props> = ({ updateRandomAnime }) => {
   return (
-    <button className="filter-btn" onClick={updateRandomAnime}>
-      Update random anime
-    </button>
+    <Button
+      text="Update random anime"
+      size="large"
+      onClick={updateRandomAnime}
+    />
   );
 };
 

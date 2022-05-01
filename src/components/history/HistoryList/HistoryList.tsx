@@ -3,6 +3,7 @@ import { HistoryCartContainer } from "../HistoryCart/HistoryCartContainer";
 import { HistoryItem } from "../../../types/types";
 
 import "./HistoryList.css";
+import { Button } from "../../shared";
 
 type Props = {
   selectedArray: string[];
@@ -23,13 +24,12 @@ export const HistoryList: React.FC<Props> = ({
         <div className="history__selected-title">
           Selected: {selectedArray.length}
         </div>
-        <button
+        <Button
+          text="Delete"
           onClick={removeHistoryAnime}
           disabled={!selectedArray.length}
-          className="btn history__btn"
-        >
-          Delete
-        </button>
+          size="small"
+        />
       </div>
 
       <ul className="history__list">

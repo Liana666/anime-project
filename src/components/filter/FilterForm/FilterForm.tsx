@@ -1,3 +1,4 @@
+import { Button, Input } from "../../shared";
 import "./FilterForm.css";
 
 type Props = {
@@ -37,25 +38,25 @@ export const FilterForm: React.FC<Props> = ({
             </option>
           ))}
       </select>
-      <input
-        className="filter-input"
+      <Input
         type="text"
         name="year"
         onChange={(e) => setYear(e.target.value)}
         value={year}
         placeholder="Year"
       />
-      <button
-        style={{ marginRight: 5 }}
+      <Button
+        text="Apply"
         onClick={filterAnime}
-        className="filter-btn"
+        size="large"
         disabled={!genres}
-      >
-        Apply
-      </button>
-      <button disabled={!genres} onClick={clearFilter} className="filter-btn">
-        Clear
-      </button>
+      />
+      <Button
+        text="Clear"
+        size="large"
+        onClick={clearFilter}
+        disabled={!genres}
+      />
     </>
   );
 };
