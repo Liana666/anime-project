@@ -4,9 +4,9 @@
 
 <li> Пишем функциональные компоненты c хуками в приоритете над классовыми. ✔️
 <li> Есть четкое разделение на умные и глупые компоненты. ✔️ <br/>
-<a href="anime-project/src/components/details/">Details/</a> <br/>
-<a href="anime-project/src/components/favorites/">Favorites/</a> <br/>
-<a href="anime-project/src/components/filter/">Filter/</a>...
+<a href="https://github.com/Liana666/anime-project/tree/develop/src/components/details">Details/</a> <br/>
+<a href="https://github.com/Liana666/anime-project/tree/develop/src/components/favorites">Favorites/</a> <br/>
+<a href="https://github.com/Liana666/anime-project/tree/develop/src/components/filter">Filter/</a>...
 <li> Есть рендеринг списков. ✔️ <br/>
 <a href="anime-project/src/components/anime/AnimeList/AnimeList.tsx/">AnimeList/</a> <br/>
 <a href="anime-project/src/components/favorites/FavoritesAnime/FavoritesAnime.tsx/">FavoritesAnime/</a> <br/>
