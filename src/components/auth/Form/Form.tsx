@@ -2,6 +2,7 @@ import { AuthForm } from "../../../types/types";
 import PropTypes from "prop-types";
 
 import "./Form.css";
+import { Button, Input } from "../../shared";
 
 export const Form: React.FC<AuthForm> = ({
   email,
@@ -28,8 +29,8 @@ export const Form: React.FC<AuthForm> = ({
         handleSubmit(email, password);
       }}
     >
-      <input
-        className={invalidEmail ? "input input-error" : "input"}
+      <Input
+        className={invalidEmail ? "input--login input-error" : "input--login"}
         type="email"
         name="email"
         value={email}
@@ -38,9 +39,10 @@ export const Form: React.FC<AuthForm> = ({
         onBlur={(e) => handleBlur(e)}
       />
       {invalidEmail && <div>{emailError}</div>}
-
-      <input
-        className={invalidPassword ? "input input-error" : "input"}
+      <Input
+        className={
+          invalidPassword ? "input--login input-error" : "input--login"
+        }
         type="password"
         name="password"
         autoComplete="on"
@@ -51,9 +53,12 @@ export const Form: React.FC<AuthForm> = ({
       />
       {invalidPassword && <div>{passwordError}</div>}
 
-      <button disabled={!formValid} className="btn" type="submit">
-        {btnValue}
-      </button>
+      <Button
+        text={btnValue}
+        disabled={!formValid}
+        size="large"
+        type="submit"
+      />
     </form>
   );
 };

@@ -1,3 +1,5 @@
+import { Button, Input } from "../../shared";
+
 type Props = {
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
   searchAnime: () => void;
@@ -11,29 +13,25 @@ export const SearchForm: React.FC<Props> = ({
 }) => {
   return (
     <>
-      <input
-        className="filter-input"
+      <Input
         type="text"
         name="anime"
         placeholder="Anime name"
         onChange={(e) => setSearchTerm(e.target.value)}
         value={searchTerm}
       />
-      <button
-        style={{ marginRight: 5 }}
-        onClick={searchAnime}
-        className="filter-btn"
+      <Button
+        text="Search"
         disabled={!searchTerm}
-      >
-        Search
-      </button>
-      <button
+        onClick={searchAnime}
+        size="large"
+      />
+      <Button
+        text="Clear"
         disabled={!searchTerm}
         onClick={() => setSearchTerm("")}
-        className="filter-btn"
-      >
-        Clear
-      </button>
+        size="large"
+      />
     </>
   );
 };
