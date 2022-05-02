@@ -1,8 +1,9 @@
+import { Button, Input } from "../../shared";
+
 import { AuthForm } from "../../../types/types";
 import PropTypes from "prop-types";
 
 import "./Form.css";
-import { Button, Input } from "../../shared";
 
 export const Form: React.FC<AuthForm> = ({
   email,

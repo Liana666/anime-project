@@ -1,12 +1,12 @@
-import { AnimeFilter } from "../../components/filter";
-import { AnimeSidebar } from "../../components/sidebar";
+import { AnimeFilterContainer } from "../../components/filter";
+import { AnimeSidebarContainer } from "../../components/sidebar";
 
 export const FilterPage = () => {
   return (
     <>
-      <AnimeSidebar />
+      <AnimeSidebarContainer />
       <div className="container">
-        <AnimeFilter />
+        <AnimeFilterContainer />
       </div>
     </>
   );

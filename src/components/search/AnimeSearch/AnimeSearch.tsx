@@ -1,24 +1,10 @@
-import { useParams } from "react-router-dom";
-
-import { animeApi } from "../../../store/api/animeApi";
-
+import { ItemAnime } from "../../../types/types";
 import { AnimeList } from "../../anime";
-import { Preloader } from "../../preloader/Preloader";
 
-export const AnimeSearch = () => {
-  const { title } = useParams();
+type Props = {
+  anime: ItemAnime[];
+};
 
-  const { data, isSuccess, isLoading } = animeApi.useSearchAnimeQuery(title, {
-    skip: !title,
-  });
-
-  if (isLoading) {
-    return <Preloader />;
-  }
-
-  return isSuccess && data?.length ? (
-    <AnimeList anime={data} />
-  ) : (
-    <h2>Not Found</h2>
-  );
+export const AnimeSearch: React.FC<Props> = ({ anime }) => {
+  return <AnimeList anime={anime} />;
 };

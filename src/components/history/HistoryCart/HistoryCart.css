@@ -1,6 +1,11 @@
 .history__item {
     display: flex;
     gap: 40px;
+    align-items: center;
+}
+
+.history__item span {
+    font-size: 17px;
 }
 
 .history__check {
@@ -20,4 +25,38 @@
 
 .history__check:hover {
     cursor: pointer;
+}
+
+.history__btn {
+    margin-bottom: 0;
+}
+
+@media(max-width: 991px) {
+    .history__link {
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 720px) {
+    .history__item {
+        padding: 8px;
+        border: 1px solid;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        overflow: hidden;
+    }
+
+    .history__item span {
+        font-size: 14px;
+    }
+
+    .history__check {
+        width: 20px;
+        height: 20px;
+    }
+
+    .history__link {
+        font-size: 12px;
+    }
 }

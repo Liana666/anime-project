@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { animeApi } from "../../../store/api/animeApi";
 import { addHistory } from "../../../store/slices/userSlice";
-import { getDateHistory } from "../../../utils/helpers/getDateHistory";
 
+import { getDateHistory } from "../../../utils/helpers/getDateHistory";
 import { FilterForm } from "./FilterForm";
 import { useAppDispatch } from "../../../hooks/useReduxTypes";
 

@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import { ItemAnime } from "../../../types/types";
-import { AddFavorite } from "../../favorites/AddFavorite/AddFavorite";
+import { AddFavoriteContainer } from "../../favorites";
 import { preparingAnimeDetails } from "../../../utils/helpers/preparingAnimeDetails";
+import { Button } from "../../shared";
+
+import { ItemAnime } from "../../../types/types";
 
 import "./AnimeCart.css";
 
@@ -32,7 +34,7 @@ export const AnimeCart: React.FC<ItemAnime> = ({
   return (
     <div className="cart">
       <div className="cart__info">
-        <AddFavorite id={id} />
+        <AddFavoriteContainer id={id} />
         <div className="cart__title-wrapper">
           <Link to={`/details/${id}`}>
             <div className="cart__title">
@@ -71,9 +73,11 @@ export const AnimeCart: React.FC<ItemAnime> = ({
         </ul>
 
         <div className="cart__descr">{description}</div>
-        <button onClick={() => navigate(`/details/${id}`)} className="btn">
-          More
-        </button>
+        <Button
+          text="More"
+          onClick={() => navigate(`/details/${id}`)}
+          size="more"
+        />
       </div>
       <div className="cart__cover">
         <div style={{ color: cover_color }} className="cart__title--jp">

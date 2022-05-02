@@ -1,5 +1,5 @@
 import { MiddlewareAPI, Dispatch } from "redux";
-import { auth } from "../../components/firebase/firebase";
+import { auth } from "../../firebase/firebase";
 
 export const customMiddleWare = (store:MiddlewareAPI) => (next: Dispatch) => (action: any) => {
   const user = auth.currentUser;

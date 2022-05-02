@@ -21,8 +21,14 @@
     width: 257px;
 }
 
+.sidebar__navlink-mob {
+    margin-bottom: 20px;
+    display: none;
+}
+
 .sidebar__btn {
     margin-bottom: 30px;
+    margin-left: 6px;
 
     width: 30px;
     height: 30px;
@@ -55,4 +61,12 @@
 .sidebar--open .sidebar__wrapper {
     width: 100%;
     opacity: 1;
+}
+
+@media(max-width: 991px) {
+    .sidebar__navlink-mob {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
 }

@@ -25,8 +25,8 @@ export const HistoryCart: React.FC<Props> = ({
         {isChecked ? "+" : null}
       </button>
       <span>{date}</span>
-      <Link to={url}>
-        <span>{url}</span>
+      <Link className="history__link" to={url}>
+        {url}
       </Link>
     </li>
   );

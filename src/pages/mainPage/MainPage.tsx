@@ -1,13 +1,13 @@
 import { AnimeListContainer } from "../../components/anime";
-import { AnimeSidebar } from "../../components/sidebar";
+import { AnimeSidebarContainer } from "../../components/sidebar";
 
 import "./MainPage.css";
 
 export const MainPage = () => {
   return (
     <>
-      <AnimeSidebar />
-      <div className="container">
+      <AnimeSidebarContainer />
+      <div className="container container--main">
         <AnimeListContainer />
       </div>
     </>

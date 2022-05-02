@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# 1 уровень (необходимый минимум)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## React
 
-## Available Scripts
+<li> Пишем функциональные компоненты c хуками в приоритете над классовыми. ✔️
+<li> Есть четкое разделение на умные и глупые компоненты. ✔️ <br/>
+<a href="anime-project/src/components/details/">Details/</a> <br/>
+<a href="anime-project/src/components/favorites/">Favorites/</a> <br/>
+<a href="anime-project/src/components/filter/">Filter/</a>...
+<li> Есть рендеринг списков. ✔️ <br/>
+<a href="anime-project/src/components/anime/AnimeList/AnimeList.tsx/">AnimeList/</a> <br/>
+<a href="anime-project/src/components/favorites/FavoritesAnime/FavoritesAnime.tsx/">FavoritesAnime/</a> <br/>
+<a href="anime-project/src/components/history/HistoryList/HistoryList.tsx/">HistoryList/</a>...
+<li> Реализована хотя бы одна форма. ✔️ <br/>
+<a href="anime-project/src/components/auth/Form/Form.tsx/">Form</a>
+<li> Есть применение Контекст API. ✔️ <br/>
+<a href="anime-project/src/index.tsx/">index</a>
+<li> Есть применение предохранителя. ✔️ <br/>
+<a href="anime-project/src/components/anime/AnimeList/AnimeListContainer.tsx/">AnimeListContainer</a> <br/>
+<a href="anime-project/src/components/details/DetailsAnimeContainer.tsx/">DetailsAnimeContainer</a>
+<li> Есть хотя бы один кастомный хук. ✔️ <br/>
+<a href="anime-project/src/hooks/">hooks</a>
+<li> Хотя бы несколько компонентов используют PropTypes. ✔️ <br/>
+<a href="anime-project/src/components/update/UpdateAnime.tsx/">UpdateAnime</a> <br/>
+<a href="anime-project/src/components/auth/Form/Form.tsx/">Form</a>
+<li> Поиск не должен триггерить много запросов к серверу. ✔️ Поиск триггериться только по нажатию кнопки.
 
-In the project directory, you can run:
+## Redux
 
-### `npm start`
+<li> Используем Modern Redux with Redux Toolkit . ✔️ <br/>
+<a href="anime-project/src/store/">store/</a> 
+<li> Используем слайсы. ✔️ <br/>
+<a href="anime-project/src/store/slices/">slices/</a> 
+<li> Есть хотя бы одна кастомная мидлвара. ✔️ <br/>
+<a href="anime-project/src/store/middleware/">middleware/</a>
+<li> Используется RTK Query. ✔️ <br/>
+<a href="anime-project/src/store/api/animeApi.ts/">animeApi/</a>
+<li> Используется Transforming Responses. ✔️ <br/>
+<a href="anime-project/src/store/api/animeApi.ts/">animeApi/</a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# 2 уровень (необязательный)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<li> Проведена оптимизация приложения. 
+<li> Используются мемоизированные селекторы. ✔️<br/>
+<a href="anime-project/src/store/selectors/selectors.ts /">selectors/</a>
+<li> Используется нормализованная структура стейта. <br/>
+<li> Подключен storybook и созданы несколько сторисов. ✔️<br/>
+<a href="anime-project/src/components/shared/Button/">Button/</a>
+<a href="anime-project/src/components/shared/Input/">Input/</a>
+<li> Использование TypeScript. ✔️<br/>

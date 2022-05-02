@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import parse from 'html-react-parser';
 
 import { ItemAnime } from '../../types/types';
 import { AnimeResponse } from '../../types/types';
@@ -37,7 +38,15 @@ export const animeApi = createApi({
         getItemAnime: build.query<ItemAnime, number | string>({
             query: (id) => `anime/${id}`,
             transformResponse: (response: { data: ItemAnime }) => {
-                return response.data
+                const descriptions =  response.data.descriptions;
+                const descriptionsParse:any = descriptions.en && parse( descriptions.en);
+                response.data.descriptions.en = typeof descriptionsParse === "object" 
+                ? descriptionsParse
+                    ?.filter((item: any) => typeof item === "string")
+                    .join("") 
+                : descriptionsParse;
+            
+                return response.data;
               },
         })
     })  

@@ -1,7 +1,8 @@
-import { animeApi } from "../../../store/api/animeApi";
 import { ErrorBoundary } from "react-error-boundary";
-import { ErrorFallback } from "../../error";
 
+import { animeApi } from "../../../store/api/animeApi";
+
+import { ErrorFallback } from "../../error";
 import { Preloader } from "../../preloader/Preloader";
 import { AnimeList } from "./AnimeList";
 

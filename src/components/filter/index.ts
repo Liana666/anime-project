@@ -1,4 +1,4 @@
 import { FilterFormContainer } from "./FilterForm/FilterFormContainer";
-import { AnimeFilter } from "./AnimeFilter/AnimeFilter";
+import { AnimeFilterContainer } from "./AnimeFilter/AnimeFilterContainer";
 
-export {FilterFormContainer, AnimeFilter};
+export {FilterFormContainer, AnimeFilterContainer};

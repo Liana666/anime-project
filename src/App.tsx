@@ -4,7 +4,7 @@ import { LoginPage } from "./pages/loginPage/LoginPage";
 import { RegisterPage } from "./pages/registerPage/RegisterPage";
 import { MainPage } from "./pages/mainPage/MainPage";
 import { PrivateRoute } from "./hoc/PrivateRoute";
-import { Header } from "./components/layout/Header";
+import { HeaderContainer } from "./components/layout/Header/HeaderContainer";
 import { FavoritesPage } from "./pages/favoritesPage/FavoritesPage";
 import { ErrorPage } from "./pages/errorPage/errorPage";
 import { DetailsPage } from "./pages/singlePage/DetailsPage";
@@ -17,7 +17,7 @@ import "./App.css";
 export function App() {
   return (
     <div className="App">
-      <Header />
+      <HeaderContainer />
       <main>
         <Routes>
           <Route path="/" element={<MainPage />} />

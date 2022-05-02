@@ -29,7 +29,7 @@ export const DetailsAnimeContainer = () => {
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <>{isSuccess && data && <DetailsAnime key={data.id} {...data} />}</>
+      {isSuccess && data ? <DetailsAnime key={data.id} {...data} /> : null}
     </ErrorBoundary>
   );
 };

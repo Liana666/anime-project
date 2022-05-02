@@ -1,4 +1,5 @@
 import { Button, Input } from "../../shared";
+
 import "./FilterForm.css";
 
 type Props = {

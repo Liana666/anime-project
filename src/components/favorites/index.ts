@@ -1,4 +1,4 @@
+import { AddFavoriteContainer } from './AddFavorite/AddFavoriteContainer';
 import { FavoriteAnimeContainer } from "./FavoritesAnime/FavoriteAnimeContainer";
-import { AddFavorite } from "./AddFavorite/AddFavorite";
 
-export {FavoriteAnimeContainer, AddFavorite};
+export {FavoriteAnimeContainer, AddFavoriteContainer};

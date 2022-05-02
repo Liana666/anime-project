@@ -6,7 +6,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 import { App } from "./App";
 import { store, persistor } from "./store/store";
-import "./components/firebase/firebase";
+import "./firebase/firebase";
 
 import "./index.css";
 import { Preloader } from "./components/preloader/Preloader";

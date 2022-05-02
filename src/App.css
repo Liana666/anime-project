@@ -65,7 +65,7 @@
 }
 
 @media (max-width: 1540px) {
-  .container  {
+  .container--main  {
     padding: 100px 20px 20px 92px;
   }
 }

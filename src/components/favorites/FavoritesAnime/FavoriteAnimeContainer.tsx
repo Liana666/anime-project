@@ -1,4 +1,5 @@
 import { useFavoriteAnime } from "../../../store/selectors/selectors";
+
 import { FavoritesAnime } from "./FavoritesAnime";
 
 export const FavoriteAnimeContainer = () => {

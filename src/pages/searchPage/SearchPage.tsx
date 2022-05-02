@@ -1,12 +1,12 @@
-import { AnimeSearch } from "../../components/search";
-import { AnimeSidebar } from "../../components/sidebar";
+import { AnimeSearchContainer } from "../../components/search";
+import { AnimeSidebarContainer } from "../../components/sidebar";
 
 export const SearchPage = () => {
   return (
     <>
-      <AnimeSidebar />
+      <AnimeSidebarContainer />
       <div className="container">
-        <AnimeSearch />
+        <AnimeSearchContainer />
       </div>
     </>
   );

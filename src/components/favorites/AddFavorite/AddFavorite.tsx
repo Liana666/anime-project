@@ -1,38 +1,22 @@
-import { useNavigate } from "react-router-dom";
-
-import { useAppDispatch, useAppSelector } from "../../../hooks/useReduxTypes";
-import { addFavoriteAnime } from "../../../store/slices/userSlice";
-import { removeFavoriteAnime } from "../../../store/slices/userSlice";
-import { useFavoriteAnime } from "../../../store/selectors/selectors";
-
 import "./AddFavorite.css";
 
 type Props = {
   id: number;
+  favorites: number[];
+  addFavorites: () => void;
+  removeFavorites: () => void;
 };
 
-export const AddFavorite: React.FC<Props> = ({ id }) => {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const email = useAppSelector((state) => state.user.email);
-
-  const favorites = useFavoriteAnime();
-
-  const addFavorites = () => {
-    if (!email) {
-      navigate("/login");
-    } else {
-      dispatch(addFavoriteAnime({ id, email }));
-    }
-  };
-
+export const AddFavorite: React.FC<Props> = ({
+  id,
+  favorites,
+  addFavorites,
+  removeFavorites,
+}) => {
   return (
     <>
       {favorites && favorites.find((idUser) => idUser === id) ? (
-        <button
-          className="cart__add-favorites"
-          onClick={() => dispatch(removeFavoriteAnime({ id }))}
-        >
+        <button className="cart__add-favorites" onClick={removeFavorites}>
           - Delete from favorites
         </button>
       ) : (

@@ -28,7 +28,7 @@ export const HistoryList: React.FC<Props> = ({
           text="Delete"
           onClick={removeHistoryAnime}
           disabled={!selectedArray.length}
-          size="small"
+          size="small history__btn"
         />
       </div>
 

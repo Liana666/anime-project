@@ -1,3 +1,3 @@
-import { AnimeSidebar } from "./AnimeSidebar";
+import { AnimeSidebarContainer } from "./AnimeSidebarContainer";
 
-export {AnimeSidebar};
+export {AnimeSidebarContainer};

@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+
+import { useAppDispatch } from "../../../hooks/useReduxTypes";
 import { useHistoryUser } from "../../../store/selectors/selectors";
 import { removeHistory } from "../../../store/slices/userSlice";
+
 import { HistoryList } from "./HistoryList";
 
 import "./HistoryList.css";
 
 export const HistoryListContainer = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const userHistory = useHistoryUser();
   const [selectedArray, setSelectedArray] = useState<string[]>([]);
 

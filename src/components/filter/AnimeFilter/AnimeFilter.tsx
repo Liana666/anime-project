@@ -1,23 +1,11 @@
-import { useParams } from "react-router-dom";
-
-import { animeApi } from "../../../store/api/animeApi";
-
 import { AnimeList } from "../../anime";
-import { Preloader } from "../../preloader/Preloader";
 
-export const AnimeFilter = () => {
-  const { genres, year } = useParams();
+import { ItemAnime } from "../../../types/types";
 
-  const { data, isSuccess, isLoading } = animeApi.useGetFilterQuery(
-    { year, genres },
-    { skip: !genres || !year }
-  );
+type Props = {
+  anime: ItemAnime[];
+};
 
-  if (isLoading) {
-    return <Preloader />;
-  }
-
-  return (
-    <>{isSuccess && data?.length ? <AnimeList anime={data} /> : "Not Found"}</>
-  );
+export const AnimeFilter: React.FC<Props> = ({ anime }) => {
+  return <AnimeList anime={anime} />;
 };

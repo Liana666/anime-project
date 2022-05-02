@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { login } from "../store/slices/userSlice";
 
-import { auth } from "../components/firebase/firebase";
+import { auth } from "../firebase/firebase";
 import { FormContainer } from "../components/auth";
 
 type Auth = typeof auth;
