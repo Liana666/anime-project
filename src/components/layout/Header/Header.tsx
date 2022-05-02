@@ -37,12 +37,32 @@ export const Header = () => {
         <NavLink to="/">
           <div className="header__logo">アニ/Ani</div>
         </NavLink>
-        <div className="header__links">
-          <NavLink to="/favorites">お気に入り/Favorites</NavLink>
-          <NavLink to="/history">物語/History</NavLink>
-        </div>
 
-        <div className="header__links">
+        {emailUser ? (
+          <>
+            <div className="header__links">
+              <NavLink to="/favorites">お気に入り/Favorites</NavLink>
+              <NavLink to="/history">物語/History</NavLink>
+            </div>
+            <div className="header__links">
+              <span>Hi, {emailUser}</span>
+              <div onClick={signOut} className="header__btn-logout">
+                <LogoutIcon />
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="header__links">
+            <div className="header__btn-logout">
+              <NavLink to="/login">Login</NavLink>
+            </div>
+            <div className="header__btn-logout">
+              <NavLink to="/register">Register</NavLink>
+            </div>
+          </div>
+        )}
+
+        {/* <div className="header__links">
           {emailUser ? (
             <>
               <span>Hi, {emailUser}</span>
@@ -60,7 +80,7 @@ export const Header = () => {
               </div>
             </>
           )}
-        </div>
+        </div> */}
       </div>
     </header>
   );

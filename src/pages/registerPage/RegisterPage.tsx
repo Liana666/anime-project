@@ -18,7 +18,7 @@ export const RegisterPage = () => {
           />
 
           <p className="linkRegister">
-            Already have an account? <Link to="/">Sign in</Link>
+            Already have an account? <Link to="/login">Sign in</Link>
           </p>
         </div>
       </div>

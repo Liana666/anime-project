@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { ItemAnime } from "../../../types/types";
 import { AddFavorite } from "../../favorites/AddFavorite/AddFavorite";
@@ -33,10 +34,12 @@ export const AnimeCart: React.FC<ItemAnime> = ({
       <div className="cart__info">
         <AddFavorite id={id} />
         <div className="cart__title-wrapper">
-          <div className="cart__title">
-            <span>{titleStart}</span>{" "}
-            <span style={{ color: cover_color }}>{titleEnd}</span>
-          </div>
+          <Link to={`/details/${id}`}>
+            <div className="cart__title">
+              <span>{titleStart}</span>{" "}
+              <span style={{ color: cover_color }}>{titleEnd}</span>
+            </div>
+          </Link>
           <div className="cart__date">
             <div>
               <p>Start date: </p>

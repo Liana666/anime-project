@@ -7,11 +7,7 @@ type Props = {
 
 export const UpdateAnime: React.FC<Props> = ({ updateRandomAnime }) => {
   return (
-    <Button
-      text="Update random anime"
-      size="large"
-      onClick={updateRandomAnime}
-    />
+    <Button text="random anime" size="large" onClick={updateRandomAnime} />
   );
 };
 

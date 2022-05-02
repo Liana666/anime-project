@@ -12,6 +12,7 @@
     font-weight: 500;
     font-size: 11px;
     line-height: 133.5%;
+    white-space: nowrap;
     color: #fff;
 
     letter-spacing: 0.2em;
