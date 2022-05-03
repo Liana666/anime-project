@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-import { useAppDispatch } from "../../../hooks/useReduxTypes";
 import { useHistoryUser } from "../../../store/selectors/selectors";
 import { removeHistory } from "../../../store/slices/userSlice";
+
+import { useAppDispatch } from "../../../hooks/useReduxTypes";
 
 import { HistoryList } from "./HistoryList";
 

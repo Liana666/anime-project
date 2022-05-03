@@ -2,8 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import { AddFavoriteContainer } from "../../favorites";
-import { preparingAnimeDetails } from "../../../utils/helpers/preparingAnimeDetails";
 import { Button } from "../../shared";
+
+import { preparingAnimeDetails } from "../../../utils";
 
 import { ItemAnime } from "../../../types/types";
 

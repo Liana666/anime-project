@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { animeApi } from "../../../store/api/animeApi";
 import { addHistory } from "../../../store/slices/userSlice";
 
-import { getDateHistory } from "../../../utils/helpers/getDateHistory";
 import { FilterForm } from "./FilterForm";
+
 import { useAppDispatch } from "../../../hooks/useReduxTypes";
+import { getDateHistory } from "../../../utils/helpers/getDateHistory";
 
 export const FilterFormContainer = () => {
   const dispatch = useAppDispatch();

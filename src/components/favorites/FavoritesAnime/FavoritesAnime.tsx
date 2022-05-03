@@ -1,6 +1,6 @@
 import { animeApi } from "../../../store/api/animeApi";
 
-import { Preloader } from "../../preloader/Preloader";
+import { Preloader } from "../../preloader";
 import { AnimeCart } from "../../anime/AnimeCart/AnimeCart";
 
 type Props = {

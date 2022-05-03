@@ -2,12 +2,11 @@ import { useNavigate } from "react-router-dom";
 
 import { useFavoriteAnime } from "../../../store/selectors/selectors";
 import { addFavoriteAnime } from "../../../store/slices/userSlice";
-
-import { useAppDispatch, useAppSelector } from "../../../hooks/useReduxTypes";
 import { removeFavoriteAnime } from "../../../store/slices/userSlice";
+
 import { AddFavorite } from "./AddFavorite";
 
-import "./AddFavorite.css";
+import { useAppDispatch, useAppSelector } from "../../../hooks/useReduxTypes";
 
 type Props = {
   id: number;

@@ -1,4 +1,5 @@
 import { AddFavoriteContainer } from "../favorites";
+
 import { preparingAnimeDetails } from "../../utils/helpers/preparingAnimeDetails";
 
 import { ItemAnime } from "../../types/types";
@@ -77,7 +78,7 @@ export const DetailsAnime: React.FC<ItemAnime> = ({
           </div>
         </div>
       </div>
-      <div style={{ paddingTop: 30 }} className="container">
+      <div style={{ paddingTop: 40 }} className="container">
         <ul className="single__genres">
           {genres.map((genre: string) => (
             <li key={genre}>{genre}</li>

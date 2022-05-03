@@ -1,7 +1,8 @@
+import PropTypes from "prop-types";
+
 import { Button, Input } from "../../shared";
 
 import { AuthForm } from "../../../types/types";
-import PropTypes from "prop-types";
 
 import "./Form.css";
 

@@ -1,4 +1,5 @@
 import { AnimeCart } from "../AnimeCart/AnimeCart";
+import { NotFound } from "../../error";
 
 import { ItemAnime } from "../../../types/types";
 
@@ -17,7 +18,7 @@ export const AnimeList: React.FC<Props> = ({ anime }) => {
             <AnimeCart key={animeItem.id} {...animeItem} />
           ))
         ) : (
-          <h2>Not Found</h2>
+          <NotFound />
         )}
       </div>
     </>

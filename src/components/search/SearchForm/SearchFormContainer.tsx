@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { addHistory } from "../../../store/slices/userSlice";
 
 import { SearchForm } from "./SearchForm";
+
 import { useAppDispatch } from "../../../hooks/useReduxTypes";
 import { getDateHistory } from "../../../utils/helpers/getDateHistory";
 

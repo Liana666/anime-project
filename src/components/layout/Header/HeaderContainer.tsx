@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import { auth } from "../../../firebase/firebase";
-import { useAppDispatch } from "../../../hooks/useReduxTypes";
 import { login } from "../../../store/slices/userSlice";
 
 import { Header } from "./Header";
 
-import "./Header.css";
+import { auth } from "../../../firebase/firebase";
+import { useAppDispatch } from "../../../hooks/useReduxTypes";
 
 export const HeaderContainer = () => {
   const navigate = useNavigate();

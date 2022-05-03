@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
-import { isValidEmail } from "../../../utils/helpers";
-import { isValidPassword } from "../../../utils/helpers";
 import { Form } from "./Form";
+
+import { isValidEmail } from "../../../utils";
+import { isValidPassword } from "../../../utils";
 
 type Props = {
   btnValue: string;

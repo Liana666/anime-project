@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 
-import "./Header.css";
-
 import { LogoutIcon } from "../../svg/LogoutIcon";
+
+import "./Header.css";
 
 type Props = {
   emailUser: string | null;

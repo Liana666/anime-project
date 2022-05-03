@@ -16,10 +16,10 @@ export const preparingAnimeDetails = (
     const titleJp = titles.jp && titles.jp.slice(0, 9);
     const dateStart = start_date.slice(0, 10);
     const dateEnd = end_date.slice(0, 10); 
-    const descriptionParse:any = descriptions.en && parse( descriptions.en.slice(0, 150) + "...");
-    const description = typeof descriptionParse === "object" ?
+    const descriptionParse = descriptions.en && parse( descriptions.en.slice(0, 150) + "...");
+    const description = Array.isArray(descriptionParse) ?
          descriptionParse
-            ?.filter((item: any) => typeof item === "string")
+            ?.filter((item) => typeof item === "string")
             .join("") 
         : descriptionParse;
 

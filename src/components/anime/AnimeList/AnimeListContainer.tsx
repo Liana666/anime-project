@@ -3,7 +3,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { animeApi } from "../../../store/api/animeApi";
 
 import { ErrorFallback } from "../../error";
-import { Preloader } from "../../preloader/Preloader";
+import { Preloader } from "../../preloader";
 import { AnimeList } from "./AnimeList";
 
 export const AnimeListContainer = () => {
@@ -15,7 +15,7 @@ export const AnimeListContainer = () => {
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      {isSuccess && data && <AnimeList anime={data} />}
+      {isSuccess && data ? <AnimeList anime={data} /> : null}
     </ErrorBoundary>
   );
 };

@@ -4,7 +4,7 @@ import { ErrorBoundary } from "react-error-boundary";
 
 import { animeApi } from "../../store/api/animeApi";
 
-import { Preloader } from "../preloader/Preloader";
+import { Preloader } from "../preloader";
 import { DetailsAnime } from "./DetailsAnime";
 import { ErrorFallback } from "../error";
 

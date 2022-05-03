@@ -1,9 +1,9 @@
 import { HistoryCartContainer } from "../HistoryCart/HistoryCartContainer";
+import { Button } from "../../shared";
 
 import { HistoryItem } from "../../../types/types";
 
 import "./HistoryList.css";
-import { Button } from "../../shared";
 
 type Props = {
   selectedArray: string[];

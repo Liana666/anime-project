@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 
 import { animeApi } from "../../../store/api/animeApi";
 
-import { Preloader } from "../../preloader/Preloader";
+import { NotFound } from "../../error";
+import { Preloader } from "../../preloader";
 import { AnimeFilter } from "./AnimeFilter";
 
 export const AnimeFilterContainer = () => {
@@ -19,11 +20,7 @@ export const AnimeFilterContainer = () => {
 
   return (
     <>
-      {isSuccess && data?.length ? (
-        <AnimeFilter anime={data} />
-      ) : (
-        <h2>Not Found</h2>
-      )}
+      {isSuccess && data?.length ? <AnimeFilter anime={data} /> : <NotFound />}
     </>
   );
 };

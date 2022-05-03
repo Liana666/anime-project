@@ -1,2 +1,4 @@
 import { ErrorFallback } from "./ErrorFallback/ErrorFallback";
-export {ErrorFallback};
+import { NotFound } from "./NotFound/NotFound";
+
+export {ErrorFallback, NotFound};
