@@ -1,0 +1,22 @@
+.not-page {
+    width: 100%;
+    height: 80vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.not-page__title {
+    font-size: 5rem;
+}
+
+.not-page__description {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.not-page__icon {
+    font-size: 1.5rem;
+}

@@ -5,19 +5,44 @@
 }
 
 body {
-  background: #0E151F;
+  min-height: 100vh;
+  
+  overflow-x: hidden;
+  background: #121118;
+
   color: #fff;
-  font-family: 'Play';
+  font-family: 'Poppins', sans-serif;
   font-weight: normal;
 }
 
-a {
-  font-size: 22px;
-  line-height: 140%;
-  color: #d30066;
-  font-weight: 600;
+h2 {
+  font-family: 'Play';
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 145%;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 
-  text-decoration: none;
+a {
+  font-weight: 400;
+    font-size: 18px;
+    line-height: 145%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    color: #fff;
+
+    transition: 0.5s ease 0s;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+input {
+  color: #fff !important;
 }
 
 /*FONT-FAMILY*/
@@ -40,5 +65,16 @@ a {
   src: local('RubikGlitch'), url("./fonts/RubikGlitch-Regular.woff") format('woff');
 }
 
-
 /*******/
+
+::-webkit-scrollbar {
+  width: 6px; /* ширина для вертикального скролла */
+  height: 4px; /* высота для горизонтального скролла */
+  background-color: #0c0c0c10;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background: none;
+  border: 1px solid #fff;
+}
