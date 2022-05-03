@@ -48,3 +48,7 @@
 ( <a href="https://github.com/Liana666/anime-project/tree/develop/src/components/shared/Button">Button</a>,
 <a href="https://github.com/Liana666/anime-project/tree/develop/src/components/shared/Input">Input</a> )
 <li> Использование TypeScript. ✔️
+
+
+https://user-images.githubusercontent.com/78962820/166443249-dc8a29c9-924b-4299-b844-3e10a199df78.mp4
+
