@@ -49,6 +49,11 @@
 <a href="https://github.com/Liana666/anime-project/tree/develop/src/components/shared/Input">Input</a> )
 <li> Использование TypeScript. ✔️
 
+  
+ # Deploy 
+ https://incomparable-douhua-8060e2.netlify.app/
+
+  
 # Preview
 
 https://user-images.githubusercontent.com/78962820/166444130-bd040907-10f6-44b2-a157-c774f9bedb37.mp4
