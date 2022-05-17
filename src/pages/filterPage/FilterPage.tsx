@@ -5,7 +5,7 @@ export const FilterPage = () => {
   return (
     <>
       <AnimeSidebarContainer />
-      <div className="container">
+      <div className="container container--main">
         <AnimeFilterContainer />
       </div>
     </>

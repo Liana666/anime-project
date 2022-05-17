@@ -84,7 +84,9 @@ export const AnimeCart: React.FC<ItemAnime> = ({
         <div style={{ color: cover_color }} className="cart__title--jp">
           {titleJp}
         </div>
-        <img src={cover_image} alt="" />
+        <Link to={`/details/${id}`}>
+          <img src={cover_image} alt="" />
+        </Link>
       </div>
     </div>
   );

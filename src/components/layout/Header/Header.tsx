@@ -11,9 +11,11 @@ type Props = {
 };
 
 export const Header: React.FC<Props> = ({ emailUser, pathname, signOut }) => {
+  const isMain = pathname === "/" || pathname.includes('/filter/') || pathname.includes('/search/');
+
   return (
     <header>
-      <div className={pathname === "/" ? "header header--main" : "header"}>
+      <div className={isMain ? "header header--main" : "header"}>
         <NavLink to="/">
           <div className="header__logo">アニ/Ani</div>
         </NavLink>
