@@ -49,9 +49,6 @@
 <a href="https://github.com/Liana666/anime-project/tree/develop/src/components/shared/Input">Input</a> )
 <li> Использование TypeScript. ✔️
 
-  
- # Deploy 
-https://peppy-chimera-e033e2.netlify.app/
 
   
 # Preview
